@@ -1,0 +1,36 @@
+
+body {
+    background: linear-gradient(to right, #e0f7fa, #b2dfdb);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .sidebar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    background-color: #004d40;
+    color: white;
+    padding-top: 60px;
+  }
+  .sidebar a {
+    padding: 15px 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+  .sidebar a:hover {
+    background-color: #00796b;
+  }
+  .content {
+    margin-left: 250px;
+    padding: 30px;
+  }
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .modal-header {
+    background-color: #004d40;
+    color: white;
+  }

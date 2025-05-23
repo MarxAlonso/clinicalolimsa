@@ -1,0 +1,70 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(rgba(17, 2, 59, 0.7), rgba(17, 2, 59, 0.7)), url('../img/fondo3.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+
+}
+
+.login-box {
+  background: linear-gradient(135deg, #8ef2ff, #56c8d8);
+  padding: 40px;
+  border-radius: 50px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.login-box h2 {
+  color: #000000;
+  margin-bottom: 65px;
+  text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
+}
+
+.form-control {
+  border-radius: 15px;
+}
+
+.btn-custom {
+  border-radius: 10px;
+  background-color: #56c1ff;
+  color: white;
+  width: 20vh;
+  
+}
+
+.btn-custom:hover {
+  
+  background-color: #56c1ff;
+}
+.btn-customr {
+  border-radius: 10px;
+   border: 1px solid #ffffff;
+  background-color: #64d0df;
+  color: rgb(255, 255, 255);
+  width: 20vh;
+  
+}
+
+.btn-customr:hover {
+  
+  background-color: #56c1ff;
+}
+
+.input-group-text {
+  background-color: #56c1ff;
+  color: white;
+  border-radius: 15px 0 0 15px;
+}

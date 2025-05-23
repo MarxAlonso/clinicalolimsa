@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Medicamentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/gestioncitas.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+      <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="bi bi-list text-white"></i>
+      </div>
+      <h4 class="logo-container">
+        <img src="/img/logo-removebg-preview.png" class="logo-img" />
+      </h4>
+      <nav class="nav flex-column">
+        <a class="nav-link" href="#"
+          ><i class="bi bi-bar-chart"></i> <span>Estadísticas</span></a
+        >
+        <a class="nav-link" href="gestion_citas.html"
+          ><i class="bi bi-calendar-check"></i> <span>Gestión de Citas</span></a
+        >
+        <a class="nav-link" href="gestion_medicos.html"
+          ><i class="bi bi-person-badge"></i> <span>Gestión de Médicos</span></a
+        >
+        <a class="nav-link" href="gestion_medicamentos.html"
+          ><i class="bi bi-capsule"></i> <span>Gestión de Medicamentos</span></a
+        >
+        <a class="nav-link" href="gestion_pacientes.html"
+          ><i class="bi bi-people"></i> <span>Gestión de Pacientes</span></a
+        >
+      </nav>
+      <a href="/index.html" class="btn btn-danger w-100 logout-link">
+        <i class="bi bi-box-arrow-right me-2"></i> <span>Cerrar Sesión</span>
+      </a>
+    </div>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3>Gestión de Medicamentos</h3>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCrearMedicamento">
+        <i class="bi bi-plus-circle"></i> Nuevo Medicamento
+      </button>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- Diseño para la muestra de medicamento v1 - se puede mejorar si gustas -->
+      <div class="col">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <h5 class="card-title">Paracetamol</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Tableta<br>
+              <strong>Gramos:</strong> 500 mg<br>
+              <strong>Cantidad:</strong> 20 tabletas
+            </p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i> Editar</button>
+            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para abri el apartado de Crear Medicamento -->
+  <div class="modal fade" id="modalCrearMedicamento" tabindex="-1" aria-labelledby="modalCrearMedicamentoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalCrearMedicamentoLabel">Agregar Nuevo Medicamento</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nombreMedicamento" class="form-label">Nombre del Medicamento</label>
+            <input type="text" class="form-control" id="nombreMedicamento" required>
+            
+            <label for="nombreMedicamento" class="form-label">Stock</label>
+            <input type="text" class="form-control" id="stock" required>
+          </div>
+          <div class="mb-3">
+            <label for="tipoMedicamento" class="form-label">Tipo</label>
+            <select class="form-select" id="tipoMedicamento" onchange="mostrarCampos()" required>
+              <option value="">Seleccione tipo</option>
+              <option value="tableta">Tableta</option>
+              <option value="jarabe">Jarabe</option>
+              <option value="inyeccion">Inyección</option>
+            </select>
+          </div>
+
+          <div id="camposEspecificos"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Guardar Medicamento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    //Logica de javascript para hacer tipo filtro a la hora de agregar nuevo medicamento, solo para que se vea el formulario de acuerdo al tipo de medicamento que se selecciona, y solo es muestra del diseño
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("collapsed");
+    }
+
+    function mostrarCampos() {
+      const tipo = document.getElementById("tipoMedicamento").value;
+      const campos = document.getElementById("camposEspecificos");
+      campos.innerHTML = '';
+
+      if (tipo === 'tableta') {
+        campos.innerHTML = `
+          <div class="mb-3">
+            <label for="gramos" class="form-label">Gramos (mg)</label>
+            <input type="number" class="form-control" id="gramos" required>
+          </div>
+          <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad de tabletas</label>
+            <input type="number" class="form-control" id="cantidad" required>
+          </div>
+        `;
+      } else if (tipo === 'jarabe') {
+        campos.innerHTML = `
+          <div class="mb-3">
+            <label for="volumen" class="form-label">Volumen (ml)</label>
+            <input type="number" class="form-control" id="volumen" required>
+          </div>
+          <div class="mb-3">
+            <label for="concentracion" class="form-label">Concentración (mg/ml)</label>
+            <input type="text" class="form-control" id="concentracion" required>
+          </div>
+        `;
+      } else if (tipo === 'inyeccion') {
+        campos.innerHTML = `
+          <div class="mb-3">
+            <label for="dosis" class="form-label">Dosis (ml o mg)</label>
+            <input type="text" class="form-control" id="dosis" required>
+          </div>
+          <div class="mb-3">
+            <label for="via" class="form-label">Vía de administración</label>
+            <input type="text" class="form-control" id="via" required>
+          </div>
+        `;
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
