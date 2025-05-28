@@ -5,6 +5,7 @@ import com.example.clinicalolimsa.models.RegisterDto;
 import com.example.clinicalolimsa.repositories.AppUserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,14 @@ import java.util.Date;
 public class AccountController {
     @Autowired
     private AppUserRepository repo;
+
+    @GetMapping("/profile")
+    public String profile(Authentication auth, Model model){
+        AppUser user = repo.findByEmail(auth.getName());
+        model.addAttribute("appUser",user);
+        return "profile";
+    }
+
     @GetMapping("/register")
     public String register(Model model){
         RegisterDto registerDto = new RegisterDto();
@@ -28,19 +37,20 @@ public class AccountController {
         return "register";
     }
 
+
     @PostMapping("/register")
-    public String register(Model model,@Valid @ModelAttribute RegisterDto registerDto,
-                           BindingResult result){
+    public String register( Model model, @Valid @ModelAttribute RegisterDto registerDto,
+                            BindingResult result){
         if(!registerDto.getPassword().equals(registerDto.getConfirmPassword())){
-            result.addError(new FieldError("registroDto","confirmPassword"
-                    ,"Los passwords no coinciden" ));
+            result.addError(new FieldError("registerDto","confirmPassword",
+                    "Password and Confirm Password do not match"));
         }
         AppUser appUser = repo.findByEmail(registerDto.getEmail());
         if(appUser!=null){
-            result.addError(new FieldError("registerDto","email",
-                    "El email registrado esta siendo usando"));
+            result.addError( new FieldError("registerDto","email",
+                    "El email address is already used"));
         }
-        if(result.hasErrors()) { return "register"; }
+        if(result.hasErrors()){       return "register";     }
         try{
             var bCryptEncoder = new BCryptPasswordEncoder();
             AppUser newUser = new AppUser();
@@ -49,17 +59,16 @@ public class AccountController {
             newUser.setEmail(registerDto.getEmail());
             newUser.setPhone(registerDto.getPhone());
             newUser.setAddress(registerDto.getAddress());
-            newUser.setRole("client");
+            newUser.setRole("paciente");
             newUser.setCreatedAt(new Date());
-            newUser.setPassword(bCryptEncoder.encode(
-                    registerDto.getPassword()));
+            newUser.setPassword(bCryptEncoder.encode(registerDto.getPassword()));
             repo.save(newUser);
-            model.addAttribute("registerDto", new RegisterDto());
+            model.addAttribute("registerDto",new RegisterDto());
             model.addAttribute("success",true);
         }catch(Exception ex){
-            result.addError(new FieldError("registerDto","firstName"
-                    ,ex.getMessage()));
-        }
+            result.addError(new FieldError("registerDto","firstName",
+                    ex.getMessage()));      }
         return "register";
-    }//fin metodo
+    }
 }//fin
+

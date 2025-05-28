@@ -1,5 +1,6 @@
 package com.example.clinicalolimsa.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,28 +8,37 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Autowired
+    private CustomSuccessHandler customSuccessHandler;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        return http.authorizeHttpRequests(auth->auth
+        return http.authorizeHttpRequests(auth -> auth
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/contact/").permitAll()
+                        .requestMatchers("/contact").permitAll()
                         .requestMatchers("/store/**").permitAll()
                         .requestMatchers("/register").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/logout").permitAll()
+                        .requestMatchers("/paciente/**").hasRole("paciente")
+                        .requestMatchers("/gerente/**").hasRole("gerente")
+                        .requestMatchers("/logout").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(form->form.defaultSuccessUrl("/",true)
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .usernameParameter("email")
+                        .passwordParameter("password")
+                        .successHandler(customSuccessHandler)
                 )
-                .logout(config -> config.logoutSuccessUrl("/")
-                ).build();
-    }//fin Security
-
+                .logout(config -> config.logoutSuccessUrl("/"))
+                .build();
+    }
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-}//fin de la clase
+}
