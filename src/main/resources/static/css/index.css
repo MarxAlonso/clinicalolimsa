@@ -1,0 +1,43 @@
+:root {
+    --primary-color: #64d0df;
+    --secondary-color: #56c1ff;
+    --tertiary-color: #56c8d8;
+  }
+  .navbar {
+    background-color: var(--primary-color) !important;
+  }
+  .navbar-brand, .nav-link {
+    color: white !important;
+  }
+  .banner {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 100px 0;
+    color: white;
+  }
+  .service-card {
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
