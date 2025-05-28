@@ -1,0 +1,52 @@
+.table-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+.table thead th {
+    background: linear-gradient(45deg, #53d0c5, #2c7e91);
+    color: white;
+    border: none;
+    padding: 15px;
+}
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+.table tbody tr:hover {
+    background-color: rgba(83, 208, 197, 0.1);
+    transform: translateY(-2px);
+}
+.btn-add {
+    background: linear-gradient(45deg, #53d0c5, #2c7e91);
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(44, 126, 145, 0.3);
+}
+.action-buttons .btn {
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+.action-buttons .btn:hover {
+    transform: translateY(-2px);
+}
+.page-title {
+    color: #2c7e91;
+    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
+}
+.page-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #53d0c5, #2c7e91);
+}
