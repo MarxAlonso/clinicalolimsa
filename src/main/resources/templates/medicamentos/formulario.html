@@ -34,30 +34,55 @@
     </a>
 </div>
 <div class="container mt-4">
-    <h2 th:text="${medicamento.id == null} ? 'Nuevo Medicamento' : 'Editar Medicamento'"></h2>
-    <form th:action="@{/gerente/medicamentos/guardar}" th:object="${medicamento}" method="post">
-        <input type="hidden" th:field="*{id}">
-        <div class="mb-3">
-            <label>Nombre</label>
-            <input type="text" th:field="*{nombre}" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label>Descripción</label>
-            <textarea th:field="*{descripcion}" class="form-control"></textarea>
-        </div>
-        <div class="mb-3">
-            <label>Cantidad</label>
-            <input type="number" th:field="*{cantidad}" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label>Precio</label>
-            <input type="number" step="0.01" th:field="*{precio}" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <a href="/gerente/medicamentos" class="btn btn-secondary">Cancelar</a>
-    </form>
-
-    <script src="/js/panelgeneral.js"></script>
+    <div class="form-container animate__animated animate__fadeIn">
+        <h2 class="page-title" th:text="${medicamento.id == null} ? 'Nuevo Medicamento' : 'Editar Medicamento'"></h2>
+        <form th:action="@{/gerente/medicamentos/guardar}" th:object="${medicamento}" method="post" id="medicamentoForm">
+            <input type="hidden" th:field="*{id}">
+            <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                <label class="form-label">Nombre</label>
+                <input type="text" th:field="*{nombre}" class="form-control" required>
+            </div>
+            <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <label class="form-label">Descripción</label>
+                <textarea th:field="*{descripcion}" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                <label class="form-label">Cantidad</label>
+                <input type="number" th:field="*{cantidad}" class="form-control" required>
+            </div>
+            <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                <label class="form-label">Precio</label>
+                <input type="number" step="0.01" th:field="*{precio}" class="form-control" required>
+            </div>
+            <div class="mt-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
+                <button type="submit" class="btn btn-success me-2">Guardar</button>
+                <a href="/gerente/medicamentos" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('medicamentoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    Swal.fire({
+        title: '¿Guardar cambios?',
+        text: "¿Estás seguro de guardar los cambios?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#2c7e91',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sí, guardar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            this.submit();
+        }
+    });
+});
+</script>
+    <script src="/js/panelgeneral.js"></script>
 </body>
 </html>
