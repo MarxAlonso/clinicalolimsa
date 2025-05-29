@@ -42,31 +42,73 @@
     <div class="row g-4 mt-3">
       <div class="col-md-6 col-lg-3">
         <div class="card p-3">
-          <h5><i class="bi bi-bar-chart-line-fill"></i> Estadísticas</h5>
-          <p>Total de citas: 240</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-3">
           <h5><i class="bi bi-person-badge-fill"></i> Médicos</h5>
-          <p>Activos: 45</p>
+          <p>Activos: <span th:text="${totalMedicos}">0</span></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card p-3">
           <h5><i class="bi bi-capsule"></i> Medicamentos</h5>
-          <p>En stock: 120</p>
+          <p>En stock: <span th:text="${totalMedicamentos}">0</span></p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card p-3">
           <h5><i class="bi bi-people-fill"></i> Pacientes</h5>
-          <p>Registrados: 150</p>
+          <p>Registrados: <span th:text="${totalPacientes}">0</span></p>
         </div>
       </div>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h5 class="text-center">Pacientes Registrados Últimas Semanas</h5>
+      <canvas id="pacientesChart" height="200"></canvas>
+    </div>
+    <div class="col-md-6">
+      <h5 class="text-center">Medicamentos Agregados Últimas Semanas</h5>
+      <canvas id="medicamentosChart" height="200"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script th:inline="javascript">
+    const pacientesData = /*[[${pacientesPorSemana}]]*/ {};
+    const medicamentosData = /*[[${medicamentosPorSemana}]]*/ {};
 
+    const pacientesLabels = Object.keys(pacientesData);
+    const pacientesValues = Object.values(pacientesData);
+
+    const medicamentosLabels = Object.keys(medicamentosData);
+    const medicamentosValues = Object.values(medicamentosData);
+
+    new Chart(document.getElementById('pacientesChart'), {
+      type: 'line',
+      data: {
+        labels: pacientesLabels,
+        datasets: [{
+          label: 'Pacientes',
+          data: pacientesValues,
+          borderColor: 'rgb(54, 162, 235)',
+          fill: false,
+          tension: 0.1
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('medicamentosChart'), {
+      type: 'bar',
+      data: {
+        labels: medicamentosLabels,
+        datasets: [{
+          label: 'Medicamentos',
+          data: medicamentosValues,
+          backgroundColor: 'rgba(255, 99, 132, 0.6)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }]
+      }
+    });
+  </script>
   <script src="/js/panelgeneral.js"></script>
 </body>
 </html>
