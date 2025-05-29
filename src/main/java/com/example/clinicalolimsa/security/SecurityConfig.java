@@ -24,6 +24,7 @@ public class SecurityConfig {
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/logout").permitAll()
                         .requestMatchers("/paciente/**").hasRole("paciente")
+
                         .requestMatchers("/medico/**").hasRole("medico")
                         .requestMatchers("/gerente/**").hasRole("gerente")
                         .requestMatchers("/logout").permitAll()
