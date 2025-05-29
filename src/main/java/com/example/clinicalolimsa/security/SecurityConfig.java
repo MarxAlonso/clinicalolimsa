@@ -23,7 +23,7 @@ public class SecurityConfig {
                         .requestMatchers("/register").permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/logout").permitAll()
-                        .requestMatchers("/paciente/**").hasRole("paciente")
+                        .requestMatchers("/panelpaciente/**").hasRole("paciente")
 
                         .requestMatchers("/medico/**").hasRole("medico")
                         .requestMatchers("/gerente/**").hasRole("gerente")
