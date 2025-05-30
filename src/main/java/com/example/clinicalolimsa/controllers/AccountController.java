@@ -21,14 +21,6 @@ import java.util.Date;
 public class AccountController {
     @Autowired
     private AppUserRepository repo;
-
-    @GetMapping("/profile")
-    public String profile(Authentication auth, Model model){
-        AppUser user = repo.findByEmail(auth.getName());
-        model.addAttribute("appUser",user);
-        return "profile";
-    }
-
     @GetMapping("/register")
     public String register(Model model){
         RegisterDto registerDto = new RegisterDto();
@@ -36,7 +28,6 @@ public class AccountController {
         model.addAttribute("success",false);
         return "register";
     }
-
 
     @PostMapping("/register")
     public String register( Model model, @Valid @ModelAttribute RegisterDto registerDto,
