@@ -20,6 +20,10 @@ public class Medicamentos {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaRegistro;
 
+    private String imagen; // guardaremos solo el nombre del archivo
+    @ManyToOne
+    @JoinColumn(name = "proveedor_id") // FK en la tabla medicamentos
+    private Proveedor proveedor;
     // Getters y Setters
 
     public int getId()              {       return id;    }
@@ -63,6 +67,22 @@ public class Medicamentos {
 
     public void setFechaRegistro(Date fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 }
 

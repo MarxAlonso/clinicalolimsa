@@ -37,7 +37,7 @@
 <div class="container mt-4">
     <div class="form-container animate__animated animate__fadeIn">
         <h2 class="page-title" th:text="${medicamento.id == null} ? 'Nuevo Medicamento' : 'Editar Medicamento'"></h2>
-        <form th:action="@{/gerente/medicamentos/guardar}" th:object="${medicamento}" method="post" id="medicamentoForm">
+        <form th:action="@{/gerente/medicamentos/guardar}" th:object="${medicamento}" method="post" id="medicamentoForm" enctype="multipart/form-data">
             <input type="hidden" th:field="*{id}">
             <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
                 <label class="form-label">Nombre</label>
@@ -54,6 +54,19 @@
             <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
                 <label class="form-label">Precio</label>
                 <input type="number" step="0.01" th:field="*{precio}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Proveedor</label>
+                <select class="form-select" th:field="*{proveedor.id}">
+                    <option th:each="prov : ${proveedores}"
+                            th:value="${prov.id}"
+                            th:text="${prov.nombreEmpresa}">
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Imagen</label>
+                <input type="file" name="imagenFile" class="form-control" accept="image/*">
             </div>
             <div class="mt-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
                 <button type="submit" class="btn btn-success me-2">Guardar</button>

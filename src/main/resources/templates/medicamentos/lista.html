@@ -42,20 +42,26 @@
   <div class="table-container">
       <table class="table table-hover">
           <thead>
-              <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Cantidad</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
-              </tr>
+          <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Proveedor</th>
+              <th>Acciones</th>
+          </tr>
           </thead>
           <tbody>
-              <tr th:each="med : ${medicamentos}" class="animate__animated animate__fadeIn">
-                  <td th:text="${med.nombre}"></td>
-                  <td th:text="${med.descripcion}"></td>
-                  <td th:text="${med.cantidad}"></td>
-                  <td th:text="${med.precio}"></td>
+          <tr th:each="med : ${medicamentos}">
+              <td>
+                  <img th:src="@{'/uploads/' + ${med.imagen}}" width="80" height="80" alt="Sin imagen">
+              </td>
+              <td th:text="${med.nombre}"></td>
+              <td th:text="${med.descripcion}"></td>
+              <td th:text="${med.cantidad}"></td>
+              <td th:text="${med.precio}"></td>
+              <td th:text="${med.proveedor.nombreEmpresa}"></td>
                   <td class="action-buttons">
                       <a th:href="@{'/gerente/medicamentos/editar/' + ${med.id}}" class="btn btn-warning btn-sm">
                           <i class="bi bi-pencil"></i> Editar
