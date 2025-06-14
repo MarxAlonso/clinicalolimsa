@@ -1,6 +1,7 @@
 package com.example.clinicalolimsa.models;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -21,6 +22,7 @@ public class Medicamentos {
     private double cantidadMedida; // Ej: 250
     private String unidadMedida;   // Ej: "ml", "g", "tabletas"
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date fechaVencimiento;
 
