@@ -33,7 +33,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         }
         // Verifica si el usuario tiene el rol "empleado"
         else if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_medico"))) {
-            redirectURL += "/medicos/medicopanel"; // Redirige a la vista de empleados
+            redirectURL += "/medicos/medicospanel"; // Redirige a la vista de empleados
         }
         // Verifica si el usuario tiene el rol "administrador"
         else if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_gerente"))) {

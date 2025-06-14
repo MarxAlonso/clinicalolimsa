@@ -1,36 +1,53 @@
+:root {
+    --primary-color: #1a237e;
+    --hover-color: #c5cae9;
+    --danger-color: #c62828;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --bg-color: #f8f9fa;
+}
 
 body {
-    background: linear-gradient(to right, #e0f7fa, #b2dfdb);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  .sidebar {
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px;
-    background-color: #004d40;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar estilos */
+.navbar-custom {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    padding: 1rem 0;
+}
+
+.navbar-custom .navbar-brand {
     color: white;
-    padding-top: 60px;
-  }
-  .sidebar a {
-    padding: 15px 20px;
-    display: block;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+    transform: translateX(5px);
+}
+
+.navbar-custom .nav-link {
     color: white;
-    text-decoration: none;
-  }
-  .sidebar a:hover {
-    background-color: #00796b;
-  }
-  .content {
-    margin-left: 250px;
-    padding: 30px;
-  }
-  .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .modal-header {
-    background-color: #004d40;
-    color: white;
-  }
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.navbar-custom .nav-link i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover i {
+    transform: scale(1.2);
+}
