@@ -8,40 +8,39 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/gerente/proveedores")
-public class ProveedorController {
-
+@RequestMapping("/gerente/gerenteproveedores")
+public class GerenteProveedorController {
     @Autowired
     private ProveedorRepository proveedorRepository;
 
     @GetMapping
     public String listarProveedores(Model model) {
         model.addAttribute("proveedores", proveedorRepository.findAll());
-        return "proveedores/lista";
+        return "gerente/gerenteproveedores/lista";
     }
 
     @GetMapping("/nuevo")
     public String nuevoProveedorForm(Model model) {
         model.addAttribute("proveedor", new Proveedor());
-        return "proveedores/formulario";
+        return "gerente/gerenteproveedores/formulario";
     }
 
     @GetMapping("/editar/{id}")
-    public String editarProveedor(@PathVariable int id, Model model) {
+    public String editarProveedor(@PathVariable Integer id, Model model) {
         Proveedor proveedor = proveedorRepository.findById(id).orElseThrow();
         model.addAttribute("proveedor", proveedor);
-        return "proveedores/formulario";
+        return "gerente/gerenteproveedores/formulario";
     }
 
     @PostMapping("/guardar")
     public String guardarProveedor(@ModelAttribute Proveedor proveedor) {
         proveedorRepository.save(proveedor);
-        return "redirect:/gerente/proveedores";
+        return "redirect:/gerente/gerenteproveedores";
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminarProveedor(@PathVariable int id) {
+    public String eliminarProveedor(@PathVariable Integer id) {
         proveedorRepository.deleteById(id);
-        return "redirect:/gerente/proveedores";
+        return "redirect:/gerente/gerenteproveedores";
     }
 }

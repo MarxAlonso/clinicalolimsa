@@ -1,10 +1,7 @@
 package com.example.clinicalolimsa.services;
 
 import com.example.clinicalolimsa.models.AppUser;
-import com.example.clinicalolimsa.models.EstadisticasDTO;
-import com.example.clinicalolimsa.models.Medicamentos;
 import com.example.clinicalolimsa.repositories.AppUserRepository;
-import com.example.clinicalolimsa.repositories.MedicamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

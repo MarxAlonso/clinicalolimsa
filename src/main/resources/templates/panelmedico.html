@@ -141,22 +141,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <form id="formCita">
+        <form id="formCita" method="post" th:action="@{/panelmedico/registrarCita}">
           <div class="mb-3">
             <label for="nombrePacienteCita" class="form-label">Nombre del Paciente</label>
-            <input type="text" class="form-control" id="nombrePacienteCita" placeholder="Ej. Juan Pérez">
+            <input type="text" id="nombrePacienteCita" name="nombrePaciente" list="listaPacientes" class="form-control" required>
+            <datalist id="listaPacientes">
+              <!-- JS insertará aquí las opciones -->
+            </datalist>
           </div>
           <div class="mb-3">
             <label for="fechaCita" class="form-label">Fecha y Hora de la Cita</label>
-            <input type="datetime-local" class="form-control" id="fechaCita">
+            <input type="datetime-local" class="form-control" id="fechaCita" name="fechaCita" required>
           </div>
           <div class="mb-3">
             <label for="motivoCita" class="form-label">Motivo de la Cita</label>
-            <textarea class="form-control" id="motivoCita" rows="3" placeholder="Ej. Seguimiento de tratamiento, nuevos síntomas, etc."></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="medicoCita" class="form-label">Médico Asignado</label>
-            <input type="text" class="form-control" id="medicoCita" placeholder="Ej. Dr. García">
+            <textarea class="form-control" id="motivoCita" name="motivo" rows="3" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary"><i class="bi bi-calendar-plus"></i> Registrar Cita</button>
         </form>
@@ -164,7 +163,20 @@
     </div>
   </div>
 </div>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("/panelmedico/pacientes") // <-- asegúrate que coincida con tu controlador
+        .then(res => res.json())
+        .then(data => {
+          const datalist = document.getElementById("listaPacientes");
+          data.forEach(nombre => {
+            const option = document.createElement("option");
+            option.value = nombre;
+            datalist.appendChild(option);
+          });
+        });
+    });
+  </script>
 <!-- Modal Diagnóstico y Tratamiento -->
 <div class="modal fade" id="modalHistoriaClinica" tabindex="-1" aria-labelledby="modalHistoriaClinicaLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -174,8 +186,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <form id="formHistoriaClinica">
-          <div class="mb-3">
+        <form id="formCita" method="post" th:action="@{/panelmedico/registrarCita}">
+        <div class="mb-3">
             <label for="pacienteDiagnostico" class="form-label">Paciente</label>
             <input type="text" class="form-control" id="pacienteDiagnostico" placeholder="Nombre del paciente">
           </div>
@@ -274,7 +286,7 @@
     }
   });
 });
-
   </script>
+
 </body>
 </html>
