@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Table(name = "medicos")
 public class Medicos {
     @Id // Marca este campo como la clave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // El valor se generará automáticamente por la base de datos
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombres;
     private String apellidos;
@@ -18,8 +18,14 @@ public class Medicos {
     private String contrasena;
     private String telefono;
     private String direccion;
-    private String cargo;
     private double sueldo;
+    private String especialidad;              // Ej: Cardiología, Pediatría, etc.
+    private String numeroColegiatura;         // Número de colegiatura profesional médica
+    private String universidad;               // Universidad donde se graduó
+    private LocalDate fechaGraduacion;        // Fecha de finalización de estudios
+    private int tiempoExperiencia;             // Años de experiencia profesional
+    private String turno;                     // Ej: Mañana, Tarde, Noche
+    private String genero;
     private LocalDate fechaContratacion;
 
     // Getters y Setters
@@ -95,14 +101,6 @@ public class Medicos {
         this.direccion = direccion;
     }
 
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
     public double getSueldo() {
         return sueldo;
     }
@@ -117,5 +115,61 @@ public class Medicos {
 
     public void setFechaContratacion(LocalDate fechaContratacion) {
         this.fechaContratacion = fechaContratacion;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public String getNumeroColegiatura() {
+        return numeroColegiatura;
+    }
+
+    public void setNumeroColegiatura(String numeroColegiatura) {
+        this.numeroColegiatura = numeroColegiatura;
+    }
+
+    public String getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
+    }
+
+    public LocalDate getFechaGraduacion() {
+        return fechaGraduacion;
+    }
+
+    public void setFechaGraduacion(LocalDate fechaGraduacion) {
+        this.fechaGraduacion = fechaGraduacion;
+    }
+
+    public int getTiempoExperiencia() {
+        return tiempoExperiencia;
+    }
+
+    public void setTiempoExperiencia(int tiempoExperiencia) {
+        this.tiempoExperiencia = tiempoExperiencia;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }

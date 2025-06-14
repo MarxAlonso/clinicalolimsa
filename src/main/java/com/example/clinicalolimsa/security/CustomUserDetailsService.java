@@ -34,17 +34,17 @@ public class CustomUserDetailsService implements UserDetailsService {
                     .build();
         }
 
-        Medicos empleado = medicoRepository.findByCorreo(email);
-        if (empleado != null) {
+        Medicos medicos = medicoRepository.findByCorreo(email);
+        if (medicos != null) {
             // Listado de cargos válidos para ingresar al sistema
-            List<String> cargosValidos = List.of("almacenero", "analista", "repartidor");
+            List<String> especialidadValidos = List.of("pediatria", "cardiologia");
 
-            String cargo = empleado.getCargo().toLowerCase();
+            String especialidad = medicos.getEspecialidad().toLowerCase();
 
-            if (cargosValidos.contains(cargo)) {
+            if (especialidadValidos.contains(especialidad)) {
                 return User.builder()
-                        .username(empleado.getCorreo())
-                        .password(empleado.getContrasena()) // debe estar encriptada
+                        .username(medicos.getCorreo())
+                        .password(medicos.getContrasena()) // debe estar encriptada
                         .roles("medico") // se mapea como un solo rol para Spring Security
                         .build();
             } else {

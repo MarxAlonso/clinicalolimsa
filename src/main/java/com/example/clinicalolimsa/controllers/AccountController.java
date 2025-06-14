@@ -45,7 +45,7 @@ public class AccountController {
             result.addError( new FieldError("registerDto","email",
                     "El email address is already used"));
         }
-        if(result.hasErrors()){       return "Registro";     }
+        if(result.hasErrors()){       return "register";     }
         try{
             var bCryptEncoder = new BCryptPasswordEncoder();
             AppUser newUser = new AppUser();

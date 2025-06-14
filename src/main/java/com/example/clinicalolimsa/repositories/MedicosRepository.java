@@ -9,7 +9,7 @@ public interface MedicosRepository extends JpaRepository<Medicos, Integer> {
 
     Medicos findByCorreo(String correo);
 
-    List<Medicos> findByCargo(String cargo);
+    List<Medicos> findByEspecialidad(String especialidad);
 
     boolean existsByCorreo(String correo);
 }
