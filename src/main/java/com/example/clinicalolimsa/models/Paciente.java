@@ -2,6 +2,7 @@ package com.example.clinicalolimsa.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -18,7 +19,27 @@ public class Paciente {
     private String address;
     private String password;
     private String role;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+
+    // Nuevos campos sugeridos
+    private String sexo;                     // Masculino / Femenino / Otro
+    private LocalDate fechaNacimiento;
+    private String tipoSangre;               // Ej: A+, O-, etc.
+    private String documentoIdentidad;       // DNI o Pasaporte
+    private String nacionalidad;
+
+    private String estadoCivil;             // Soltero, Casado, etc.
+    private String ocupacion;
+
+    // Contacto de emergencia
+    private String contactoEmergenciaNombre;
+    private String contactoEmergenciaTelefono;
+    private String contactoEmergenciaRelacion;
+
+    private String alergias;                // Coma separado: "Penicilina, Mariscos"
+    private String enfermedadesPrevias;     // Coma separado: "Diabetes, Hipertensión"
+    private String medicamentosActuales;    // Coma separado
     //getter y setter
     public Integer getId()              {       return id;    }
     public void setId(Integer id)       {       this.id = id;    }
@@ -38,4 +59,108 @@ public class Paciente {
     public void setRole(String role) {        this.role = role;    }
     public Date getCreatedAt() {        return createdAt;    }
     public void setCreatedAt(Date createdAt) {        this.createdAt = createdAt;    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTipoSangre() {
+        return tipoSangre;
+    }
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
+
+    public String getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
+
+    public void setDocumentoIdentidad(String documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+    public String getContactoEmergenciaNombre() {
+        return contactoEmergenciaNombre;
+    }
+
+    public void setContactoEmergenciaNombre(String contactoEmergenciaNombre) {
+        this.contactoEmergenciaNombre = contactoEmergenciaNombre;
+    }
+
+    public String getContactoEmergenciaTelefono() {
+        return contactoEmergenciaTelefono;
+    }
+
+    public void setContactoEmergenciaTelefono(String contactoEmergenciaTelefono) {
+        this.contactoEmergenciaTelefono = contactoEmergenciaTelefono;
+    }
+
+    public String getContactoEmergenciaRelacion() {
+        return contactoEmergenciaRelacion;
+    }
+
+    public void setContactoEmergenciaRelacion(String contactoEmergenciaRelacion) {
+        this.contactoEmergenciaRelacion = contactoEmergenciaRelacion;
+    }
+
+    public String getAlergias() {
+        return alergias;
+    }
+
+    public void setAlergias(String alergias) {
+        this.alergias = alergias;
+    }
+
+    public String getEnfermedadesPrevias() {
+        return enfermedadesPrevias;
+    }
+
+    public void setEnfermedadesPrevias(String enfermedadesPrevias) {
+        this.enfermedadesPrevias = enfermedadesPrevias;
+    }
+
+    public String getMedicamentosActuales() {
+        return medicamentosActuales;
+    }
+
+    public void setMedicamentosActuales(String medicamentosActuales) {
+        this.medicamentosActuales = medicamentosActuales;
+    }
 }

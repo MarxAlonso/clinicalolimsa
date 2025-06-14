@@ -19,37 +19,48 @@ public class GerentePacientesControlller {
 
     @GetMapping
     public String listarPaciente(Model model) {
-        model.addAttribute("paciente", pacienteRepository.findAll());
+        model.addAttribute("pacientes", pacienteRepository.findAll());
         return "gerente/gerentepaciente/lista";
     }
 
     @GetMapping("/nuevo")
     public String nuevoPacienteForm(Model model) {
-        model.addAttribute("paciente", new Paciente());
+        model.addAttribute("pacientes", new Paciente());
         return "gerente/gerentepaciente/formulario";
     }
 
     @GetMapping("/editar/{id}")
     public String editarPaciente(@PathVariable Integer id, Model model) {
         Paciente paciente = pacienteRepository.findById(id).orElseThrow();
-        model.addAttribute("paciente", paciente);
+        model.addAttribute("pacientes", paciente);
         return "gerente/gerentepaciente/formulario";
     }
 
     @PostMapping("/guardar")
     public String guardarPaciente(@ModelAttribute Paciente paciente) {
-        if (paciente.getId() == 0) {
-            paciente.setRole("paciente");
+        if (paciente.getId() == null) {
+            paciente.setRole("pacientes");
             paciente.setCreatedAt(new Date());
 
-            // Opcional: encriptar contraseña si deseas hacerlo
+            // Encriptar la contraseña solo si es nuevo
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             paciente.setPassword(passwordEncoder.encode(paciente.getPassword()));
+        } else {
+            // Si estás editando, podrías decidir no sobreescribir la contraseña si está vacía
+            if (paciente.getPassword() != null && !paciente.getPassword().isEmpty()) {
+                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                paciente.setPassword(passwordEncoder.encode(paciente.getPassword()));
+            } else {
+                // Opción: mantener la contraseña existente si no se envía una nueva
+                Paciente existente = pacienteRepository.findById(paciente.getId()).orElseThrow();
+                paciente.setPassword(existente.getPassword());
+            }
         }
 
         pacienteRepository.save(paciente);
         return "redirect:/gerente/gerentepaciente";
     }
+
 
     @GetMapping("/eliminar/{id}")
     public String eliminarPaciente(@PathVariable Integer id) {

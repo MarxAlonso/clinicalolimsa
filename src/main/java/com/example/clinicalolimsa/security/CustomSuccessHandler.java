@@ -28,7 +28,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         String redirectURL = request.getContextPath(); // Obtiene la URL base del contexto de la aplicación, por ejemplo: "/miApp"
 
         // Verifica si el usuario tiene el rol "cliente"
-        if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_paciente"))) {
+        if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_pacientes"))) {
             redirectURL += "/panelcliente"; // Redirige al panel del cliente
         }
         // Verifica si el usuario tiene el rol "empleado"
