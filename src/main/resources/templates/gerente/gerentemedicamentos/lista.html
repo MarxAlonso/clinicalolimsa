@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Medicamentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelgerente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/gerente/navbargerente.js}"></script>
+
+<div class="container mt-4 animate__animated animate__fadeIn">
+    <h2 class="page-title">Lista de Medicamentos</h2>
+    <a href="/gerente/gerentemedicamentos/nuevo" class="btn btn-add mb-3 animate__animated animate__fadeInRight">
+        <i class="bi bi-plus-circle me-2"></i>Agregar Medicamento
+    </a>
+    <a href="/gerente/gerentetipodemedicamentos" class="btn btn-add mb-3 animate__animated animate__fadeInRight">
+        <i class="bi bi-plus-circle me-2"></i>Ver los Tipos de Medicamentos
+    </a>
+    <a href="/gerente/gerentemedicamentos/exportar-pdf" class="btn btn-danger">Exportar PDF</a>
+    <a href="/gerente/gerentemedicamentos/exportar-excel" class="btn btn-success">Exportar Excel</a>
+
+    <div class="table-container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Medida</th>
+                <th>Precio</th>
+                <th>Vence</th>
+                <th>Tipo</th>
+                <th>Proveedor</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="med : ${medicamentos}">
+                <td>
+                    <img th:src="@{'/uploads/' + ${med.imagen}}" width="80" height="80" alt="Sin imagen">
+                </td>
+                <td th:text="${med.nombre}"></td>
+                <td th:text="${med.descripcion}"></td>
+                <td th:text="${med.cantidad}"></td>
+                <td th:text="${med.cantidadMedida + ' ' + med.unidadMedida}"></td>
+                <td th:text="${med.precio}"></td>
+                <td th:text="${#dates.format(med.fechaVencimiento, 'dd/MM/yyyy')}"></td>
+                <td th:text="${med.tipo != null ? med.tipo.nombre : 'Sin tipo'}"></td>
+                <td th:text="${med.proveedor != null ? med.proveedor.nombreEmpresa : 'Sin proveedor'}"></td>
+                <td class="action-buttons">
+                    <a th:href="@{'/gerente/gerentemedicamentos/editar/' + ${med.id}}" class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil"></i> Editar
+                    </a>
+                    <button class="btn btn-danger btn-sm" th:onclick="'eliminarProducto(' + ${med.id} + ')'">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function eliminarProducto(id) {
+      Swal.fire({
+          title: '¿Estás seguro?',
+          text: "Esta acción no se puede revertir",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#2c7e91',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, eliminar',
+          cancelButtonText: 'Cancelar',
+          background: '#fff',
+          customClass: {
+              confirmButton: 'btn btn-primary',
+              cancelButton: 'btn btn-danger'
+          }
+      }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = `/gerente/gerentemedicamentos/eliminar/${id}`;
+          }
+      });
+    }
+</script>
+</body>
+</html>
