@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping("/gerente/gerenteproveedores")
 public class GerenteProveedorController {
@@ -34,6 +36,9 @@ public class GerenteProveedorController {
 
     @PostMapping("/guardar")
     public String guardarProveedor(@ModelAttribute Proveedor proveedor) {
+        if (proveedor.getId() == null) {
+            proveedor.setFechaRegistro(new Date());
+        }
         proveedorRepository.save(proveedor);
         return "redirect:/gerente/gerenteproveedores";
     }

@@ -23,6 +23,8 @@ public class Proveedor {
     private String nombreGerente;
 
     private String dniGerente;
+    private String tipoProveedor;
+    private String paisOrigen;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaRegistro;
 
@@ -54,5 +56,21 @@ public class Proveedor {
 
     public void setFechaRegistro(Date fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getTipoProveedor() {
+        return tipoProveedor;
+    }
+
+    public void setTipoProveedor(String tipoProveedor) {
+        this.tipoProveedor = tipoProveedor;
+    }
+
+    public String getPaisOrigen() {
+        return paisOrigen;
+    }
+
+    public void setPaisOrigen(String paisOrigen) {
+        this.paisOrigen = paisOrigen;
     }
 }
