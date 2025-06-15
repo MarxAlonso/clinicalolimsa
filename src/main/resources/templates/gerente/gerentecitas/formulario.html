@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Citas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelgerente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/gerente/navbargerente.js}"></script>
+
+<div class="container mt-4">
+    <div class="form-container animate__animated animate__fadeIn">
+        <h2 class="page-title" th:text="${citas.id == null} ? 'Nueva Cita' : 'Editar Cita'"></h2>
+
+        <form th:action="@{/gerente/gerentecitas/guardar}" th:object="${citas}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <!-- Paciente -->
+            <div class="mb-3">
+                <label class="form-label">Paciente</label>
+                <select th:field="*{paciente}" class="form-control" required>
+                    <option value="">Seleccione un paciente</option>
+                    <option th:each="paciente : ${pacientes}"
+                            th:value="${paciente.id}"
+                            th:text="${paciente.firstName + ' ' + paciente.lastName}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Médico -->
+            <div class="mb-3">
+                <label class="form-label">Médico</label>
+                <select th:field="*{medico}" class="form-control" required>
+                    <option value="">Seleccione un médico</option>
+                    <option th:each="medico : ${medicos}"
+                            th:value="${medico.id}"
+                            th:text="${medico.nombres + ' ' + medico.apellidos + ' (' + medico.especialidad + ')'}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Fecha -->
+            <div class="mb-3">
+                <label class="form-label">Fecha de Cita</label>
+                <input type="date" th:field="*{fecha}" class="form-control" required>
+            </div>
+
+            <!-- Hora -->
+            <div class="mb-3">
+                <label class="form-label">Hora de Cita</label>
+                <input type="time" th:field="*{hora}" class="form-control" required>
+                <div class="form-text">Dependiendo de la hora se determina el turno del médico.</div>
+            </div>
+
+            <!-- Motivo -->
+            <div class="mb-3">
+                <label class="form-label">Motivo</label>
+                <input type="text" th:field="*{motivo}" class="form-control" placeholder="Ej: Revisión general" required>
+            </div>
+
+            <!-- Estado -->
+            <div class="mb-3">
+                <label class="form-label">Estado</label>
+                <select th:field="*{estado}" class="form-control">
+                    <option value="Programada">Programada</option>
+                    <option value="Cancelada">Cancelada</option>
+                    <option value="Completada">Completada</option>
+                </select>
+            </div>
+
+            <!-- Observaciones -->
+            <div class="mb-3">
+                <label class="form-label">Observaciones</label>
+                <textarea th:field="*{observaciones}" class="form-control" rows="3" placeholder="Notas médicas u observaciones posteriores"></textarea>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success me-2">Guardar</button>
+                <a th:href="@{/gerente/gerentecitas}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function verificarTurno() {
+        const horaInput = document.querySelector('input[name="hora"]');
+        const medicoSelect = document.querySelector('select[name="medico"]');
+
+        if (!horaInput || !medicoSelect) return;
+
+        const hora = horaInput.value;
+        if (!hora) return;
+
+        const [hh, mm] = hora.split(":").map(Number);
+        let turno = "";
+
+        if (hh >= 13 && hh <= 18) {
+            turno = "Tarde";
+        } else if (hh >= 7 && hh <= 12) {
+            turno = "Mañana";
+        } else if (hh >= 19 && hh <= 23) {
+            turno = "Noche";
+        }
+
+        // Este código solo alerta el turno. Para validar contra el turno real del médico, se requiere JavaScript + backend.
+        alert("La hora seleccionada corresponde al turno: " + turno);
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
