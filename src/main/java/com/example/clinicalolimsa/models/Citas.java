@@ -34,8 +34,6 @@ public class Citas {
     private String motivo; // Ej: "Consulta general", "Revisión de análisis"
 
     private String estado; // Ej: "Programada", "Cancelada", "Completada"
-
-    // Observaciones del doctor después de la cita
     private String observaciones;
 
     public Integer getId() {

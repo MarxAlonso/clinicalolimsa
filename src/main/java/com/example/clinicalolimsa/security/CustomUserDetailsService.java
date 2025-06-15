@@ -34,21 +34,15 @@ public class CustomUserDetailsService implements UserDetailsService {
                     .build();
         }
 
-        Medicos medicos = medicoRepository.findByCorreo(email);
-        if (medicos != null) {
-            // Listado de cargos válidos para ingresar al sistema
-            List<String> especialidadValidos = List.of("pediatria", "cardiologia");
+        Medicos medico = medicoRepository.findByCorreo(email);
+        if (medico != null) {
+            // Validar especialidades válidas
+            List<String> especialidadesValidas = List.of("pediatria", "cardiologia");
 
-            String especialidad = medicos.getEspecialidad().toLowerCase();
-
-            if (especialidadValidos.contains(especialidad)) {
-                return User.builder()
-                        .username(medicos.getCorreo())
-                        .password(medicos.getContrasena()) // debe estar encriptada
-                        .roles("medico") // se mapea como un solo rol para Spring Security
-                        .build();
+            if (especialidadesValidas.contains(medico.getEspecialidad().toLowerCase())) {
+                return new MedicoUserDetails(medico);
             } else {
-                throw new UsernameNotFoundException("El cargo del medico no tiene permisos de acceso.");
+                throw new UsernameNotFoundException("El médico no tiene permisos de acceso.");
             }
         }
 
