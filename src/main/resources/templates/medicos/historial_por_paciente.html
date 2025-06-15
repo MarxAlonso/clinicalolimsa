@@ -16,38 +16,29 @@
 
 <!-- Contenido -->
 <div class="container mt-4">
-    <h2>Bienvenido Dr. <span th:text="${medico.nombres} + ' ' + ${medico.apellidos}"></span></h2>
-
-    <h3>Tus citas programadas</h3>
-    <a class="btn btn-secondary mt-3" href="/medicos/medicohistorial/buscar">Buscar Historial de Paciente</a>
-
+    <h3>Historial Clínico del Paciente</h3>
     <table class="table">
         <thead>
         <tr>
-            <th>Paciente</th>
             <th>Fecha</th>
-            <th>Hora</th>
-            <th>Motivo</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <th>Diagnóstico</th>
+            <th>Tratamiento</th>
+            <th>Observaciones</th>
+            <th>Médico</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="cita : ${citas}">
-            <td th:text="${cita.paciente.firstName + ' ' + cita.paciente.lastName}"></td>
-            <td th:text="${#dates.format(cita.fecha, 'yyyy-MM-dd')}"></td>
-            <td th:text="${#dates.format(cita.hora, 'HH:mm')}"></td>
-            <td th:text="${cita.motivo}"></td>
-            <td th:text="${cita.estado}"></td>
-            <td>
-                <a class="btn btn-primary btn-sm" th:href="@{/medicos/medicohistorial/crear(citaId=${cita.id})}">
-                    Comenzar
-                </a>
-            </td>
+        <tr th:each="historial : ${historiales}">
+            <td th:text="${historial.fechaRegistro}"></td>
+            <td th:text="${historial.diagnostico}"></td>
+            <td th:text="${historial.tratamiento}"></td>
+            <td th:text="${historial.observaciones}"></td>
+            <td th:text="|${historial.medico.nombres} ${historial.medico.apellidos}|"></td>
         </tr>
         </tbody>
     </table>
 </div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
