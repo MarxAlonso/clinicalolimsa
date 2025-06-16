@@ -33,6 +33,9 @@
                 <a th:href="@{/medicos/medicohistorial/paciente/{id}(id=${paciente.id})}" class="btn btn-info btn-sm">
                     Ver historial
                 </a>
+                <a th:href="@{/medicos/medicocitas/crear(pacienteId=${paciente.id})}" class="btn btn-primary btn-sm">
+                    Crear cita
+                </a>
             </td>
         </tr>
         </tbody>
