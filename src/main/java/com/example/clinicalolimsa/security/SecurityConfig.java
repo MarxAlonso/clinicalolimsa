@@ -29,7 +29,7 @@ public class SecurityConfig {
 
                         .requestMatchers("/", "/contacto", "/register", "/login", "/logout", "/servicios", "/nosotros").permitAll()
 
-                        .requestMatchers("/paciente/**").hasRole("pacientes")
+                        .requestMatchers("/pacientes/**").hasRole("pacientes")
 
                         .requestMatchers("/medicos/**").hasRole("medico")
 

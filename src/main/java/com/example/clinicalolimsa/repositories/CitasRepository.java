@@ -1,5 +1,6 @@
 package com.example.clinicalolimsa.repositories;
 import com.example.clinicalolimsa.models.Citas;
+import com.example.clinicalolimsa.models.Paciente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -23,4 +24,6 @@ public interface CitasRepository extends JpaRepository<Citas, Integer> {
 
     // Buscar citas por estado (Ej: "Programada", "Cancelada", "Completada")
     List<Citas> findByEstado(String estado);
+    List<Citas> findByPaciente(Paciente paciente);
+
 }
