@@ -14,29 +14,24 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class AccountController {
     @Autowired
-    private AppUserRepository repo;
-
-    @GetMapping("/profile")
-    public String profile(Authentication auth, Model model){
-        AppUser user = repo.findByEmail(auth.getName());
-        model.addAttribute("appUser",user);
-        return "profile";
-    }
+    private AppUserRepository appUserRepository;
 
     @GetMapping("/register")
-    public String register(Model model){
+    public String register (Model model){
         RegisterDto registerDto = new RegisterDto();
         model.addAttribute(registerDto);
         model.addAttribute("success",false);
         return "register";
     }
-
 
     @PostMapping("/register")
     public String register( Model model, @Valid @ModelAttribute RegisterDto registerDto,
@@ -45,7 +40,7 @@ public class AccountController {
             result.addError(new FieldError("registerDto","confirmPassword",
                     "Password and Confirm Password do not match"));
         }
-        AppUser appUser = repo.findByEmail(registerDto.getEmail());
+        AppUser appUser = appUserRepository.findByEmail(registerDto.getEmail());
         if(appUser!=null){
             result.addError( new FieldError("registerDto","email",
                     "El email address is already used"));
@@ -59,10 +54,10 @@ public class AccountController {
             newUser.setEmail(registerDto.getEmail());
             newUser.setPhone(registerDto.getPhone());
             newUser.setAddress(registerDto.getAddress());
-            newUser.setRole("paciente");
+            newUser.setRole("gerente");
             newUser.setCreatedAt(new Date());
             newUser.setPassword(bCryptEncoder.encode(registerDto.getPassword()));
-            repo.save(newUser);
+            appUserRepository.save(newUser);
             model.addAttribute("registerDto",new RegisterDto());
             model.addAttribute("success",true);
         }catch(Exception ex){
@@ -70,5 +65,5 @@ public class AccountController {
                     ex.getMessage()));      }
         return "register";
     }
-}//fin
+}
 

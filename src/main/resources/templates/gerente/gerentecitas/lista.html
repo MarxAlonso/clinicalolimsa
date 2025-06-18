@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Citas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelgerente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/gerente/navbargerente.js}"></script>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Lista de Citas</h2>
+        <a href="/gerente/gerentecitas/nuevo" class="btn btn-primary">Nueva Cita</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Especialidad</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Motivo</th>
+                <th>Estado</th>
+                <th>Observaciones</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cita : ${citas}">
+                <td th:text="${cita.id}"></td>
+                <td th:text="${cita.paciente.firstName + ' ' + cita.paciente.lastName}"></td>
+                <td th:text="${cita.medico.nombres + ' ' + cita.medico.apellidos}"></td>
+                <td th:text="${cita.medico.especialidad}"></td>
+                <td th:text="${#dates.format(cita.fecha, 'dd/MM/yyyy')}"></td>
+                <td th:text="${#dates.format(cita.hora, 'HH:mm')}"></td>
+                <td th:text="${cita.motivo}"></td>
+                <td th:text="${cita.estado}"></td>
+                <td th:text="${cita.observaciones ?: 'Sin observaciones'}"></td>
+                <td>
+                    <a th:href="@{/gerente/gerentecitas/editar/{id}(id=${cita.id})}" class="btn btn-warning btn-sm">Editar</a>
+                    <a th:href="@{/gerente/gerentecitas/eliminar/{id}(id=${cita.id})}" class="btn btn-danger btn-sm"
+                       onclick="return confirm('¿Estás seguro de eliminar esta cita?')">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

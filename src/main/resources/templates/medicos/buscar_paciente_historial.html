@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Medico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/panelmedico.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/medicos/navbarmedicos.js}"></script>
+
+<!-- Contenido -->
+<div class="container mt-4">
+  <h2>Buscar historial clínico de un paciente</h2>
+  <form th:action="@{/medicos/medicohistorial/buscar}" method="post">
+    <div class="mb-3">
+      <input type="text" class="form-control" name="query" placeholder="Ingrese nombre, apellido o DNI" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('d-none');
+  }
+</script>
+
+</body>
+</html>

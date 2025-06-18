@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Medico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelmedico.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/medicos/navbarmedicos.js}"></script>
+
+<!-- Contenido -->
+<div class="container mt-4">
+    <h3>Resultados de búsqueda</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="paciente : ${pacientes}">
+            <td th:text="${paciente.firstName + ' ' + paciente.lastName}"></td>
+            <td th:text="${paciente.documentoIdentidad}"></td>
+            <td>
+                <a th:href="@{/medicos/medicohistorial/paciente/{id}(id=${paciente.id})}" class="btn btn-info btn-sm">
+                    Ver historial
+                </a>
+                <a th:href="@{/medicos/medicocitas/crear(pacienteId=${paciente.id})}" class="btn btn-primary btn-sm">
+                    Crear cita
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('d-none');
+    }
+</script>
+
+</body>
+</html>

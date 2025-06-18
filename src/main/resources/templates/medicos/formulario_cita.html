@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Medico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelmedico.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/medicos/navbarmedicos.js}"></script>
+
+<!-- Contenido -->
+
+<div class="container mt-4">
+<form th:action="@{/medicos/medicocitas/guardar}" th:object="${citas}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <!-- Paciente (readonly) -->
+    <div class="mb-3">
+        <label class="form-label">Paciente</label>
+        <input type="text" class="form-control" th:value="${paciente.firstName + ' ' + paciente.lastName}" readonly>
+        <input type="hidden" th:field="*{paciente.id}">
+    </div>
+
+    <!-- Médico (readonly) -->
+    <div class="mb-3">
+        <label class="form-label">Médico</label>
+        <input type="text" class="form-control" th:value="${medico.nombres + ' ' + medico.apellidos}" readonly>
+        <input type="hidden" th:field="*{medico.id}">
+    </div>
+
+    <!-- Fecha -->
+    <div class="mb-3">
+        <label class="form-label">Fecha de Cita</label>
+        <input type="date" th:field="*{fecha}" class="form-control" required>
+    </div>
+
+    <!-- Hora -->
+    <div class="mb-3">
+        <label class="form-label">Hora de Cita</label>
+        <input type="time" th:field="*{hora}" class="form-control" required>
+    </div>
+
+    <!-- Motivo -->
+    <div class="mb-3">
+        <label class="form-label">Motivo</label>
+        <input type="text" th:field="*{motivo}" class="form-control" required>
+    </div>
+
+    <!-- Estado -->
+    <input type="hidden" th:field="*{estado}" value="Programada">
+
+    <!-- Observaciones -->
+    <div class="mb-3">
+        <label class="form-label">Observaciones</label>
+        <textarea th:field="*{observaciones}" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a th:href="@{/medicos/medicospanel}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('d-none');
+    }
+</script>
+
+</body>
+</html>

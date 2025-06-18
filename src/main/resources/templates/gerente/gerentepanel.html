@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Gerente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelgerente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/gerente/navbargerente.js}"></script>
+
+<!-- Contenido -->
+<div class="container mt-4">
+    <div class="text-center">
+        <h2>Bienvenido al Panel del Gerente</h2>
+    </div>
+
+    <div class="row g-4 mt-3">
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3">
+                <h5><i class="bi bi-person-badge-fill"></i> Medicos</h5>
+                <p>Activos: <span th:text="${totalMedicos}">0</span></p>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3">
+                <h5><i class="bi bi-bag-dash-fill"></i> Medicamentos</h5>
+                <p>En inventario: <span th:text="${totalMedicamentos}">0</span></p>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3">
+                <h5><i class="bi bi-people-fill"></i> Pacientes</h5>
+                <p>Registrados: <span th:text="${totalPacientes}">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <h5 class="text-center">Médicos</h5>
+            <canvas id="medicosChart" height="200"></canvas>
+        </div>
+        <div class="col-md-4">
+            <h5 class="text-center">Medicamentos</h5>
+            <canvas id="medicamentosChart" height="200"></canvas>
+        </div>
+        <div class="col-md-4">
+            <h5 class="text-center">Pacientes</h5>
+            <canvas id="pacientesChart" height="200"></canvas>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script th:inline="javascript">
+    let totalMedicos = [[${totalMedicos}]];
+    let totalMedicamentos = [[${totalMedicamentos}]];
+    let totalPacientes = [[${totalPacientes}]];
+
+    new Chart(document.getElementById('medicosChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Médicos'],
+            datasets: [{
+                label: 'Cantidad',
+                data: [totalMedicos],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    new Chart(document.getElementById('medicamentosChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Medicamentos'],
+            datasets: [{
+                label: 'Cantidad',
+                data: [totalMedicamentos],
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    new Chart(document.getElementById('pacientesChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Pacientes'],
+            datasets: [{
+                label: 'Cantidad',
+                data: [totalPacientes],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+</script>
+
+</body>
+</html>

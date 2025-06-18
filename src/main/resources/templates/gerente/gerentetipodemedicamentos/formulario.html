@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Tipo de Medicamentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelgerente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/gerente/navbargerente.js}"></script>
+
+<div class="container mt-4">
+    <div class="form-container animate__animated animate__fadeIn">
+        <h2 class="page-title" th:text="${tipodemedicamentos.id == null} ? 'Nuevo Tipo de Medicamento' : 'Editar Tipo de Medicamento'"></h2>
+
+        <form th:action="@{/gerente/gerentetipodemedicamentos/guardar}" th:object="${tipodemedicamentos}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="mb-3">
+                <label class="form-label">Nombre del Tipo de Medicamento</label>
+                <input type="text" th:field="*{nombre}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea th:field="*{descripcion}" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success me-2">Guardar</button>
+                <a th:href="@{/gerente/gerentetipodemedicamentos}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

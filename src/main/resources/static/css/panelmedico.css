@@ -1,36 +1,94 @@
+:root {
+    --primary-color: #26bfc4;
+    --secondary-color: #48d6da;
+    --hover-color: #ffffff;
+    --danger-color: #ff4444;
+    --shadow-color: rgba(38, 191, 196, 0.2);
+    --bg-color: #f8f9fa;
+}
 
 body {
-    background: linear-gradient(to right, #e0f7fa, #b2dfdb);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  .sidebar {
-    height: 100vh;
-    position: fixed;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar estilos */
+.navbar-custom {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px var(--shadow-color);
+    padding: 1rem 0;
+    animation: navbarFadeIn 0.5s ease-out;
+}
+
+@keyframes navbarFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+    transform: translateX(5px) scale(1.05);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+.navbar-custom .nav-link {
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-custom .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
     left: 0;
-    top: 0;
-    width: 250px;
-    background-color: #004d40;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover::before {
+    transform: translateX(0);
+}
+
+.navbar-custom .nav-link:hover {
     color: white;
-    padding-top: 60px;
-  }
-  .sidebar a {
-    padding: 15px 20px;
-    display: block;
-    color: white;
-    text-decoration: none;
-  }
-  .sidebar a:hover {
-    background-color: #00796b;
-  }
-  .content {
-    margin-left: 250px;
-    padding: 30px;
-  }
-  .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .modal-header {
-    background-color: #004d40;
-    color: white;
-  }
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.navbar-custom .nav-link i {
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.btn-danger.logout-link {
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-danger.logout-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
