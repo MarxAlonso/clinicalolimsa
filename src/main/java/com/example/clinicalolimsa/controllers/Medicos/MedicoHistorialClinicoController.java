@@ -1,4 +1,4 @@
-package com.example.clinicalolimsa.controllers;
+package com.example.clinicalolimsa.controllers.Medicos;
 
 import com.example.clinicalolimsa.models.Citas;
 import com.example.clinicalolimsa.models.HistorialClinico;

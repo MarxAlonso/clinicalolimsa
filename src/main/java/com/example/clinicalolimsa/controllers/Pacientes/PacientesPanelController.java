@@ -1,9 +1,8 @@
-package com.example.clinicalolimsa.controllers;
+package com.example.clinicalolimsa.controllers.Pacientes;
 
 import com.example.clinicalolimsa.models.Citas;
 import com.example.clinicalolimsa.models.Paciente;
 import com.example.clinicalolimsa.repositories.CitasRepository;
-import com.example.clinicalolimsa.repositories.PacienteRepository;
 import com.example.clinicalolimsa.security.PacienteUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
