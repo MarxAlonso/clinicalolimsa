@@ -1,4 +1,4 @@
-package com.example.clinicalolimsa.controllers;
+package com.example.clinicalolimsa.controllers.Gerentes;
 
 import com.example.clinicalolimsa.models.Medicos;
 import com.example.clinicalolimsa.repositories.MedicosRepository;
