@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Almacen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelgerente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/gerente/navbargerente.js}"></script>
+
+<div class="container mt-4">
+    <div class="form-container animate__animated animate__fadeIn">
+        <h2 class="page-title" th:text="${almacen.id == null} ? 'Nuevo Registro en Almacén' : 'Editar Registro de Almacén'"></h2>
+
+        <form th:action="@{/gerente/gerentealmacen/guardar}" th:object="${almacen}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="mb-3">
+                <label class="form-label">Medicamento</label>
+                <select th:field="*{medicamento}" class="form-select" required>
+                    <option value="">-- Selecciona un medicamento --</option>
+                    <option th:each="med : ${medicamentos}"
+                            th:value="${med.id}"
+                            th:text="${med.nombre}"
+                            th:selected="${almacen.medicamento != null and med.id == almacen.medicamento.id}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Ubicación</label>
+                <input type="text" th:field="*{ubicacion}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Fecha de Ingreso</label>
+                <input type="datetime-local" th:field="*{fechaIngreso}" class="form-control" required>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success me-2">Guardar</button>
+                <a th:href="@{/gerente/gerentealmacen}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
