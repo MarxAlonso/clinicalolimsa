@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Pacientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelmedico.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/medicos/navbarmedicos.js}"></script>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Lista de Pacientes</h2>
+        <a href="/medicos/medicospaciente/nuevo" class="btn btn-primary">Nuevo Paciente</a>
+        <a href="/medicos/medicospaciente/exportar-pdf" class="btn btn-danger">Exportar PDF</a>
+        <a href="/medicos/medicospaciente/exportar-excel" class="btn btn-success">Exportar Excel</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Sexo</th>
+                <th>F. Nacimiento</th>
+                <th>Tipo Sangre</th>
+                <th>Documento</th>
+                <th>Emergencia</th>
+                <th>F. Registro</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pac : ${pacientes}">
+                <td th:text="${pac.id}"></td>
+                <td th:text="${pac.firstName}"></td>
+                <td th:text="${pac.lastName}"></td>
+                <td th:text="${pac.email}"></td>
+                <td th:text="${pac.phone}"></td>
+                <td th:text="${pac.address}"></td>
+                <td th:text="${pac.sexo}"></td>
+                <td th:text="${pac.fechaNacimiento} ?: 'N/A'"></td>
+                <td th:text="${pac.tipoSangre}"></td>
+                <td th:text="${pac.documentoIdentidad}"></td>
+                <td>
+                    <span th:text="${pac.contactoEmergenciaNombre}"></span><br>
+                    <span th:text="${pac.contactoEmergenciaTelefono}"></span><br>
+                    <span th:text="${pac.contactoEmergenciaRelacion}"></span>
+                </td>
+                <td th:text="${pac.createdAt != null} ? ${#dates.format(pac.createdAt, 'dd/MM/yyyy HH:mm')} : 'N/A'"></td>
+                <td>
+                    <a th:href="@{/medicos/medicospaciente/editar/{id}(id=${pac.id})}" class="btn btn-warning btn-sm">Editar</a>
+                    <a th:href="@{/medicos/medicospaciente/eliminar/{id}(id=${pac.id})}" class="btn btn-danger btn-sm"
+                       onclick="return confirm('¿Estás seguro de eliminar este paciente?')">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -17,13 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/empleados/vistaproductos">
+                        <a class="nav-link" href="/medicos/medicospaciente">
                             <i class="bi bi-person-vcard"></i> Gestión de Pacientes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/empleados/vistaproductos">
-                            <i class="bi bi-calendar2-check"></i> Gestión de Citas
                         </a>
                     </li>
                     <li class="nav-item">
