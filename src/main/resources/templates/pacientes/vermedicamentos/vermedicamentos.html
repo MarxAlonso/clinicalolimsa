@@ -36,7 +36,16 @@
              th:data-nombre="${med.nombre}"
              th:data-tipo="${med.tipo.nombre}">
 
-            <div class="card card-custom h-100 shadow animate__animated animate__fadeIn">
+            <div class="card card-custom h-100 shadow animate__animated animate__fadeIn"
+                 th:data-id="${med.id}"
+                 th:data-nombre="${med.nombre}"
+                 th:data-descripcion="${med.descripcion}"
+                 th:data-cantidad="${med.cantidad}"
+                 th:data-precio="${med.precio}"
+                 th:data-tipo="${med.tipo.nombre}"
+                 th:data-fecha="${#dates.format(med.fechaVencimiento, 'dd/MM/yyyy')}"
+                 th:data-imagen="${med.imagen}"
+                 onclick="abrirModal(this)">
                 <img th:src="@{/uploads/{img}(img=${med.imagen})}"
                      class="card-img-top img-fluid"
                      alt="Imagen del medicamento"
@@ -61,6 +70,30 @@
         </div>
     </div>
 </div>
+<!-- Modal para mostrar detalle del medicamento -->
+<div class="modal fade" id="medicamentoModal" tabindex="-1" aria-labelledby="medicamentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="medicamentoModalLabel">Detalle del Medicamento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImagen" class="img-fluid rounded mb-3" style="height: 200px; object-fit: cover;">
+                <p><strong>Nombre:</strong> <span id="modalNombre"></span></p>
+                <p><strong>Descripción:</strong> <span id="modalDescripcion"></span></p>
+                <p><strong>Cantidad:</strong> <span id="modalCantidad"></span></p>
+                <p><strong>Precio:</strong> S/. <span id="modalPrecio"></span></p>
+                <p><strong>Tipo:</strong> <span id="modalTipo"></span></p>
+                <p><strong>Fecha de Vencimiento:</strong> <span id="modalFecha"></span></p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-success"><i class="bi bi-cart-plus"></i> Comprar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -94,6 +127,31 @@
         buscarInput.addEventListener("input", filtrar);
         tipoSelect.addEventListener("change", filtrar);
     });
+</script>
+<script>
+    function abrirModal(card) {
+        // Obtener datos del medicamento
+        const nombre = card.dataset.nombre;
+        const descripcion = card.dataset.descripcion;
+        const cantidad = card.dataset.cantidad;
+        const precio = card.dataset.precio;
+        const tipo = card.dataset.tipo;
+        const fecha = card.dataset.fecha;
+        const imagen = card.dataset.imagen;
+
+        // Insertarlos en el modal
+        document.getElementById('modalNombre').textContent = nombre;
+        document.getElementById('modalDescripcion').textContent = descripcion;
+        document.getElementById('modalCantidad').textContent = cantidad;
+        document.getElementById('modalPrecio').textContent = precio;
+        document.getElementById('modalTipo').textContent = tipo;
+        document.getElementById('modalFecha').textContent = fecha;
+        document.getElementById('modalImagen').src = `/uploads/${imagen}`;
+
+        // Mostrar el modal
+        const modal = new bootstrap.Modal(document.getElementById('medicamentoModal'));
+        modal.show();
+    }
 </script>
 </body>
 </html>

@@ -93,21 +93,24 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 .card-custom {
-            border: none;
-            box-shadow: 0 4px 8px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: var(--bg-color);
-        }
-        .card-custom:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px var(--primary-color);
-        }
-        .card-header-custom {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            font-weight: bold;
-        }
-        .form-select, .form-control {
-            box-shadow: none;
-            border-color: var(--primary-color);
-        }
+    border: none;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-color);
+  }
+
+  .card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--primary-color);
+  }
+
+  .card-header-custom {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-weight: bold;
+  }
+
+  .form-select, .form-control {
+    box-shadow: none;
+    border-color: var(--primary-color);
+  }
