@@ -1,6 +1,7 @@
 package com.example.clinicalolimsa.models;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -13,6 +14,7 @@ public class Almacen {
 
     private String ubicacion;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaIngreso;
 

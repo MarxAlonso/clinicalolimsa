@@ -43,7 +43,6 @@ public class GerenteAlmacenController {
 
     @PostMapping("/guardar")
     public String guardarAlmacen(@ModelAttribute Almacen almacen) {
-        almacen.setFechaIngreso(new Date()); // Opcional: auto set
         almacenRepository.save(almacen);
         return "redirect:/gerente/gerentealmacen";
     }
