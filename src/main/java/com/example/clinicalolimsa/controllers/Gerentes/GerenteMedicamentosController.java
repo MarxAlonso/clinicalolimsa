@@ -4,6 +4,15 @@ import com.example.clinicalolimsa.models.Medicamentos;
 import com.example.clinicalolimsa.repositories.MedicamentosRepository;
 import com.example.clinicalolimsa.repositories.ProveedorRepository;
 import com.example.clinicalolimsa.repositories.TipoDeMedicamentoRepository;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +22,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 @Controller
 @RequestMapping("/gerente/gerentemedicamentos")
@@ -95,4 +107,44 @@ public class GerenteMedicamentosController {
 
         return "redirect:/gerente/gerentemedicamentos";
     }
+
+    @GetMapping("/exportar/excel")
+    public void exportarMedicamentosExcel(HttpServletResponse response) throws IOException {
+        List<Medicamentos> medicamentos = medicamentosRepository.findAll();
+
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        response.setHeader("Content-Disposition", "attachment; filename=medicamentos.xlsx");
+
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Medicamentos");
+
+        int rowNum = 0;
+        Row header = sheet.createRow(rowNum++);
+        header.createCell(0).setCellValue("Clínica Lolimsa - Reporte de Medicamentos");
+
+        Row descripcion = sheet.createRow(rowNum++);
+        descripcion.createCell(0).setCellValue("Este informe detalla los medicamentos registrados en la base de datos.");
+
+        Row tableHeader = sheet.createRow(rowNum++);
+        tableHeader.createCell(0).setCellValue("Nombre");
+        tableHeader.createCell(1).setCellValue("Cantidad");
+        tableHeader.createCell(2).setCellValue("Precio");
+        tableHeader.createCell(3).setCellValue("Proveedor");
+        tableHeader.createCell(4).setCellValue("Tipo");
+        tableHeader.createCell(5).setCellValue("Fecha Vencimiento");
+
+        for (Medicamentos med : medicamentos) {
+            Row row = sheet.createRow(rowNum++);
+            row.createCell(0).setCellValue(med.getNombre());
+            row.createCell(1).setCellValue(med.getCantidad());
+            row.createCell(2).setCellValue(med.getPrecio());
+            row.createCell(3).setCellValue(med.getProveedor() != null ? med.getProveedor().getNombreEmpresa() : "");
+            row.createCell(4).setCellValue(med.getTipo() != null ? med.getTipo().getNombre() : "");
+            row.createCell(5).setCellValue(new SimpleDateFormat("dd/MM/yyyy").format(med.getFechaVencimiento()));
+        }
+
+        workbook.write(response.getOutputStream());
+        workbook.close();
+    }
+
 }
