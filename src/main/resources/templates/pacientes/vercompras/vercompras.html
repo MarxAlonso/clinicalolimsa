@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Medicamentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/panelpaciente.css}">
+</head>
+<body>
+<!-- Navbar superior -->
+<div id="navbar-container"></div>
+<script th:src="@{/js/pacientes/navbarpaciente.js}"></script>
+
+<!-- Contenido -->
+<div class="container mt-4">
+  <h2 th:text="'Bienvenido, ' + ${paciente.firstName + ' ' + paciente.lastName}">Bienvenido</h2>
+  <h2>Mis Compras</h2>
+
+    <!-- Filtro por fecha -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <input type="date" id="filtroFecha" class="form-control" onchange="filtrarPorFecha()">
+      </div>
+    </div>
+
+    <!-- Cards de compras -->
+    <div class="row" id="contenedorCompras">
+      <div class="col-md-4 mb-4" th:each="compra : ${compras}"
+           th:data-fecha="${#dates.format(compra.fechaCompra, 'yyyy-MM-dd')}">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title" th:text="${compra.medicamento.nombre}">Nombre Medicamento</h5>
+            <p class="card-text"><strong>Cantidad:</strong> <span th:text="${compra.cantidad}"></span></p>
+            <p class="card-text"><strong>Total:</strong> S/. <span th:text="${compra.total}"></span></p>
+            <p class="card-text"><strong>Fecha de compra:</strong>
+              <span th:text="${#dates.format(compra.fechaCompra, 'dd/MM/yyyy HH:mm')}"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('d-none');
+  }
+</script>
+<script>
+  function filtrarPorFecha() {
+      const fechaSeleccionada = document.getElementById('filtroFecha').value;
+      const cards = document.querySelectorAll('#contenedorCompras > div');
+
+      cards.forEach(card => {
+          const fechaCard = card.getAttribute('data-fecha');
+          if (!fechaSeleccionada || fechaCard === fechaSeleccionada) {
+              card.style.display = '';
+          } else {
+              card.style.display = 'none';
+          }
+      });
+  }
+</script>
+</body>
+</html>

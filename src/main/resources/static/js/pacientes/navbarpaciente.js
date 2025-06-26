@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             <i class="bi bi-capsule"></i> Ver de Medicamentos
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pacientes/vercompras">
+                            <i class="bi bi-bag-check"></i> Mis Compras
+                        </a>
+                    </li>
                 </ul>
                 <a href="/" class="btn btn-danger logout-link">
                     <i class="bi bi-power me-2"></i> Cerrar Sesión

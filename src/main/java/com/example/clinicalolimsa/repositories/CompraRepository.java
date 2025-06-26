@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface CompraRepository extends JpaRepository<Compra, Integer> {
     List<Compra> findByPaciente(Paciente paciente);
+    List<Compra> findByPacienteOrderByFechaCompraDesc(Paciente paciente);
 }
