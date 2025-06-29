@@ -14,6 +14,10 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between mb-3">
         <h2>Lista de Pacientes</h2>
+        <form class="d-flex" th:action="@{/medicos/medicospaciente/buscar}" method="get">
+            <input type="text" name="query" class="form-control me-2" placeholder="Buscar por nombre, apellido o DNI" />
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
     </div>
 
     <div class="table-responsive">

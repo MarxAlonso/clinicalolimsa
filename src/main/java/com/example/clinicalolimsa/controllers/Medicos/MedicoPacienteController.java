@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/medicos/medicospaciente")
@@ -64,4 +65,13 @@ public class MedicoPacienteController {
         pacienteRepository.deleteById(id);
         return "redirect:/medicos/medicospaciente";
     }
+    @GetMapping("/buscar")
+    public String buscarPacientes(@RequestParam("query") String query, Model model) {
+        List<Paciente> pacientes = pacienteRepository
+                .findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrDocumentoIdentidadContaining(query, query, query);
+
+        model.addAttribute("pacientes", pacientes);
+        return "medicos/medicospaciente/lista";
+    }
+
 }

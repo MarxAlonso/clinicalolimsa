@@ -12,4 +12,7 @@ public interface PacienteRepository extends JpaRepository<Paciente,Integer> {
     boolean existsByEmail(String email);
 
     List<Paciente> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrDocumentoIdentidad(String firstName, String lastName, String documentoIdentidad);
+    List<Paciente> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrDocumentoIdentidadContaining(
+            String firstName, String lastName, String documentoIdentidad
+    );
 }
