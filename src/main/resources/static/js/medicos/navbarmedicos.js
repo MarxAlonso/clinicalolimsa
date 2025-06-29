@@ -22,8 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/empleados/vistaproveedores">
+                        <a class="nav-link" href="/medicos/vistaproveedores">
                             <i class="bi bi-capsule"></i> Gestión de Medicamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/medicos/arterial/ver">
+                             <i class="bi bi-capsule"></i> Examen Arterial Paciente
                         </a>
                     </li>
                 </ul>
