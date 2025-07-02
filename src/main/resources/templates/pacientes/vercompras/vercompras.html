@@ -1,71 +1,98 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ver Medicamentos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" th:href="@{/css/panelpaciente.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Medicamentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/panelpaciente.css}">
 </head>
-<body>
+<body class="animate-fade-in">
 <!-- Navbar superior -->
 <div id="navbar-container"></div>
 <script th:src="@{/js/pacientes/navbarpaciente.js}"></script>
 
 <!-- Contenido -->
-<div class="container mt-4">
-  <h2 th:text="'Bienvenido, ' + ${paciente.firstName + ' ' + paciente.lastName}">Bienvenido</h2>
-  <h2>Mis Compras</h2>
+<div class="container mt-4 animate-slide-up">
+    <div class="welcome-section mb-4">
+        <h2 class="display-6">
+            <i class="bi bi-person-circle me-2"></i>
+            <span th:text="'Bienvenido, ' + ${paciente.firstName + ' ' + paciente.lastName}">Bienvenido</span>
+        </h2>
+        <h2 class="h3">
+            <i class="bi bi-bag-check-fill me-2"></i>
+            Mis Compras
+        </h2>
+    </div>
 
     <!-- Filtro por fecha -->
     <div class="row mb-4">
-      <div class="col-md-6">
-        <input type="date" id="filtroFecha" class="form-control" onchange="filtrarPorFecha()">
-      </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-calendar3"></i>
+                </span>
+                <input type="date" id="filtroFecha" class="form-control custom-input" onchange="filtrarPorFecha()" placeholder="Seleccionar fecha">
+            </div>
+        </div>
     </div>
 
     <!-- Cards de compras -->
     <div class="row" id="contenedorCompras">
-      <div class="col-md-4 mb-4" th:each="compra : ${compras}"
-           th:data-fecha="${#dates.format(compra.fechaCompra, 'yyyy-MM-dd')}">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title" th:text="${compra.medicamento.nombre}">Nombre Medicamento</h5>
-            <p class="card-text"><strong>Cantidad:</strong> <span th:text="${compra.cantidad}"></span></p>
-            <p class="card-text"><strong>Total:</strong> S/. <span th:text="${compra.total}"></span></p>
-            <p class="card-text"><strong>Fecha de compra:</strong>
-              <span th:text="${#dates.format(compra.fechaCompra, 'dd/MM/yyyy HH:mm')}"></span>
-            </p>
-          </div>
+        <div class="col-md-4 mb-4" th:each="compra : ${compras}" th:data-fecha="${#dates.format(compra.fechaCompra, 'yyyy-MM-dd')}">
+            <div class="card h-100 shadow-sm card-custom animate-card">
+                <div class="card-header card-header-custom">
+                    <i class="bi bi-capsule me-2"></i>
+                    <span th:text="${compra.medicamento.nombre}">Nombre Medicamento</span>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <i class="bi bi-123 me-2"></i>
+                        <strong>Cantidad:</strong> 
+                        <span th:text="${compra.cantidad}" class="badge bg-primary ms-2"></span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-currency-dollar me-2"></i>
+                        <strong>Total:</strong> 
+                        <span class="badge bg-success ms-2">S/. <span th:text="${compra.total}"></span></span>
+                    </div>
+                    <div>
+                        <i class="bi bi-calendar-check me-2"></i>
+                        <strong>Fecha de compra:</strong>
+                        <div class="text-muted ms-4 mt-1">
+                            <span th:text="${#dates.format(compra.fechaCompra, 'dd/MM/yyyy HH:mm')}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 </div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('d-none');
-  }
-</script>
-<script>
-  function filtrarPorFecha() {
-      const fechaSeleccionada = document.getElementById('filtroFecha').value;
-      const cards = document.querySelectorAll('#contenedorCompras > div');
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('d-none');
+    }
 
-      cards.forEach(card => {
-          const fechaCard = card.getAttribute('data-fecha');
-          if (!fechaSeleccionada || fechaCard === fechaSeleccionada) {
-              card.style.display = '';
-          } else {
-              card.style.display = 'none';
-          }
-      });
-  }
+    function filtrarPorFecha() {
+        const fechaSeleccionada = document.getElementById('filtroFecha').value;
+        const cards = document.querySelectorAll('#contenedorCompras > div');
+
+        cards.forEach(card => {
+            const fechaCard = card.getAttribute('data-fecha');
+            if (!fechaSeleccionada || fechaCard === fechaSeleccionada) {
+                card.style.display = '';
+                card.querySelector('.card').classList.add('animate-card');
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
 </script>
 </body>
 </html>

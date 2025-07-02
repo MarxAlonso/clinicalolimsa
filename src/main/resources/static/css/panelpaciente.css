@@ -13,6 +13,134 @@ body {
     transition: background-color 0.3s ease;
 }
 
+/* Animaciones Generales */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+.animate-card {
+    animation: scaleIn 0.4s ease-out;
+}
+
+/* Estilos de la página */
+.welcome-section {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.welcome-section h2 {
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Input personalizado */
+.custom-input {
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 0 3px var(--shadow-color);
+    border-color: var(--secondary-color);
+}
+
+.input-group-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    padding: 0 1.5rem;
+}
+
+/* Cards */
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.card-header-custom {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.badge.bg-primary {
+    background: var(--primary-color) !important;
+}
+
+.badge.bg-success {
+    background: #28a745 !important;
+}
+
+/* Iconos */
+.bi {
+    transition: transform 0.3s ease;
+}
+
+.card-custom:hover .bi {
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: 1.5rem;
+    }
+    
+    .card-custom {
+        margin-bottom: 1rem;
+    }
+}
+
 /* Navbar estilos */
 .navbar-custom {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -92,25 +220,3 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-.card-custom {
-    border: none;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: var(--bg-color);
-  }
-
-  .card-custom:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--primary-color);
-  }
-
-  .card-header-custom {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    font-weight: bold;
-  }
-
-  .form-select, .form-control {
-    box-shadow: none;
-    border-color: var(--primary-color);
-  }

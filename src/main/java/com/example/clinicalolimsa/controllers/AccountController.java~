@@ -32,7 +32,7 @@ public class AccountController {
     public String showRegisterForm(Model model) {
         model.addAttribute("registerPacienteDto", new RegisterPacienteDto());
         model.addAttribute("success", false);
-        return "register";
+        return "pacientes/register-paciente";
     }
 
     @PostMapping("/register")
