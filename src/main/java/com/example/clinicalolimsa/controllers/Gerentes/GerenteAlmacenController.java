@@ -4,9 +4,11 @@ import com.example.clinicalolimsa.models.Almacen;
 import com.example.clinicalolimsa.models.Medicamentos;
 import com.example.clinicalolimsa.repositories.AlmacenRepository;
 import com.example.clinicalolimsa.repositories.MedicamentosRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -48,7 +50,13 @@ public class GerenteAlmacenController {
     }
 
     @PostMapping("/guardar")
-    public String guardarAlmacen(@ModelAttribute Almacen almacen) {
+    public String guardarAlmacen(@Valid @ModelAttribute("almacen") Almacen almacen,
+                                 BindingResult result,
+                                 Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("medicamentos", medicamentosRepository.findAll());
+            return "gerente/gerentealmacen/formulario";
+        }
         almacenRepository.save(almacen);
         return "redirect:/gerente/gerentealmacen";
     }
