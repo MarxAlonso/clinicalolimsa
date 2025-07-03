@@ -4,7 +4,7 @@
     <title>Lista de Pacientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/panelmedico.css}">
+    <link rel="stylesheet" th:href="@{/css/panelmedicopaciente.css}">
 </head>
 <body>
 <!-- Navbar superior -->
@@ -12,62 +12,103 @@
 <script th:src="@{/js/medicos/navbarmedicos.js}"></script>
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between mb-3">
-        <h2>Lista de Pacientes</h2>
-        <form class="d-flex" th:action="@{/medicos/medicospaciente/buscar}" method="get">
-            <input type="text" name="query" class="form-control me-2" placeholder="Buscar por nombre, apellido o DNI" />
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
+    <div class="welcome-section animate-fade-in">
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-people-fill fs-1"></i>
+            <div>
+                <h2 class="mb-0">Lista de Pacientes</h2>
+                <p class="text-white-50 mb-0">Gestión de pacientes del sistema</p>
+            </div>
+        </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>Sexo</th>
-                <th>F. Nacimiento</th>
-                <th>Tipo Sangre</th>
-                <th>Documento</th>
-                <th>Emergencia</th>
-                <th>F. Registro</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="pac : ${pacientes}">
-                <td th:text="${pac.id}"></td>
-                <td th:text="${pac.firstName}"></td>
-                <td th:text="${pac.lastName}"></td>
-                <td th:text="${pac.email}"></td>
-                <td th:text="${pac.phone}"></td>
-                <td th:text="${pac.address}"></td>
-                <td th:text="${pac.sexo}"></td>
-                <td th:text="${pac.fechaNacimiento} ?: 'N/A'"></td>
-                <td th:text="${pac.tipoSangre}"></td>
-                <td th:text="${pac.documentoIdentidad}"></td>
-                <td>
-                    <span th:text="${pac.contactoEmergenciaNombre}"></span><br>
-                    <span th:text="${pac.contactoEmergenciaTelefono}"></span><br>
-                    <span th:text="${pac.contactoEmergenciaRelacion}"></span>
-                </td>
-                <td th:text="${pac.createdAt != null} ? ${#dates.format(pac.createdAt, 'dd/MM/yyyy HH:mm')} : 'N/A'"></td>
-                <td>
-                    <a th:href="@{/medicos/medicospaciente/editar/{id}(id=${pac.id})}" class="btn btn-warning btn-sm">Editar</a>
-                    <a th:href="@{/medicos/medicospaciente/eliminar/{id}(id=${pac.id})}" class="btn btn-danger btn-sm"
-                       onclick="return confirm('¿Estás seguro de eliminar este paciente?')">Eliminar</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="card-custom animate-slide-up mt-4">
+        <div class="card-header-custom d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-search"></i>
+                <span>Buscar Pacientes</span>
+            </div>
+            <form class="d-flex gap-2" th:action="@{/medicos/medicospaciente/buscar}" method="get">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                    <input type="text" name="query" class="form-control custom-input" placeholder="Buscar por nombre, apellido o DNI" />
+                </div>
+                <button type="submit" class="btn btn-primary d-flex align-items-center gap-2">
+                    <i class="bi bi-search"></i>
+                    Buscar
+                </button>
+            </form>
+        </div>
+
+        <div class="card-body table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                <tr>
+                    <th><i class="bi bi-hash me-2"></i>ID</th>
+                    <th><i class="bi bi-person me-2"></i>Nombre</th>
+                    <th><i class="bi bi-person-vcard me-2"></i>Apellido</th>
+                    <th><i class="bi bi-envelope me-2"></i>Email</th>
+                    <th><i class="bi bi-telephone me-2"></i>Teléfono</th>
+                    <th><i class="bi bi-geo-alt me-2"></i>Dirección</th>
+                    <th><i class="bi bi-gender-ambiguous me-2"></i>Sexo</th>
+                    <th><i class="bi bi-calendar-date me-2"></i>F. Nacimiento</th>
+                    <th><i class="bi bi-droplet me-2"></i>Tipo Sangre</th>
+                    <th><i class="bi bi-card-text me-2"></i>Documento</th>
+                    <th><i class="bi bi-shield-plus me-2"></i>Emergencia</th>
+                    <th><i class="bi bi-calendar-check me-2"></i>F. Registro</th>
+                    <th><i class="bi bi-gear me-2"></i>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pac : ${pacientes}" class="animate-card">
+                    <td th:text="${pac.id}"></td>
+                    <td th:text="${pac.firstName}"></td>
+                    <td th:text="${pac.lastName}"></td>
+                    <td th:text="${pac.email}"></td>
+                    <td th:text="${pac.phone}"></td>
+                    <td th:text="${pac.address}"></td>
+                    <td th:text="${pac.sexo}"></td>
+                    <td th:text="${pac.fechaNacimiento} ?: 'N/A'"></td>
+                    <td th:text="${pac.tipoSangre}"></td>
+                    <td th:text="${pac.documentoIdentidad}"></td>
+                    <td>
+                        <div class="d-flex flex-column gap-1">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-person-heart"></i>
+                                <span th:text="${pac.contactoEmergenciaNombre}"></span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-telephone"></i>
+                                <span th:text="${pac.contactoEmergenciaTelefono}"></span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-people"></i>
+                                <span th:text="${pac.contactoEmergenciaRelacion}"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td th:text="${pac.createdAt != null} ? ${#dates.format(pac.createdAt, 'dd/MM/yyyy HH:mm')} : 'N/A'"></td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <a th:href="@{/medicos/medicospaciente/editar/{id}(id=${pac.id})}" 
+                               class="btn btn-warning btn-sm d-flex align-items-center gap-2">
+                                <i class="bi bi-pencil-square"></i>
+                                Editar
+                            </a>
+                            <a th:href="@{/medicos/medicospaciente/eliminar/{id}(id=${pac.id})}" 
+                               class="btn btn-danger btn-sm d-flex align-items-center gap-2"
+                               onclick="return confirm('¿Estás seguro de eliminar este paciente?')">
+                                <i class="bi bi-trash"></i>
+                                Eliminar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
