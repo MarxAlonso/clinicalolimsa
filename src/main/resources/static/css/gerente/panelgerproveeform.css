@@ -239,191 +239,145 @@ body {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Estilos para la sección de bienvenida */
-.welcome-section {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 2rem;
-    border-radius: 15px;
-    color: white;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
+/* Estilos para los botones de acción */
+.action-buttons .btn {
+    width: 40px;
+    height: 45px;
+    padding: 5;
+    display: inline-flex;
     align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.welcome-section:hover {
-    transform: translateY(-5px);
-}
-
-.welcome-section i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.welcome-section h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.welcome-section p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-}
-
-/* Estilos para la caja de búsqueda */
-.search-box {
-    position: relative;
-    max-width: 300px;
-}
-
-.search-box i {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--primary-color);
-}
-
-.search-box input {
-    padding-left: 35px;
+    justify-content: center;
     border-radius: 20px;
-    border: 2px solid var(--shadow-color);
     transition: all 0.3s ease;
 }
 
-.search-box input:focus {
+.action-buttons .btn i {
+    font-size: 1rem;
+}
+
+.action-buttons .btn-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    border: none;
+    color: #000;
+}
+
+.action-buttons .btn-danger {
+    background: linear-gradient(135deg, var(--danger-color), #cc0000);
+    border: none;
+}
+
+.action-buttons .btn:hover {
+    transform: rotate(5deg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Estilos para el formulario */
+.form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    transition: transform 0.3s ease;
+}
+
+.form-container .card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: black;
+    padding: 1.5rem;
+    border-radius: 10px 10px 0 0;
+}
+
+.form-container .card-body {
+    padding: 2rem;
+}
+
+/* Animación para inputs */
+.input-animate {
+    transition: all 0.3s ease;
+    border: 1px solid #26bfc4;
+}
+
+.input-animate:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem var(--shadow-color);
+    transform: translateY(-2px);
+}
+
+/* Estilos para form-floating */
+.form-floating > label {
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: var(--primary-color);
+    opacity: 1;
+    transform: scale(0.85) translateY(-1rem) translateX(0.15rem);
+}
+
+.form-floating > .form-control:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem var(--shadow-color);
 }
 
-/* Estilos para la tabla */
-.card-table {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px var(--shadow-color);
-    padding: 1rem;
-    margin-top: 2rem;
-}
-
-.table {
-    margin-bottom: 0;
-}
-
-.table thead th {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border: none;
-    padding: 1rem;
-    font-weight: 600;
-}
-
-.table thead th i {
-    margin-right: 0.5rem;
-}
-
-.table tbody tr {
-    transition: all 0.3s ease;
-}
-
-.table tbody tr:hover {
-    background-color: var(--shadow-color);
-    transform: scale(1.01);
-}
-
-.table td {
-    vertical-align: middle;
-    padding: 1rem;
-}
-
-.table td i {
-    margin-right: 0.5rem;
-}
-
-/* Estilos para los badges */
-.badge {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.badge:hover {
-    transform: translateY(-2px);
-}
-
-/* Estilos para los botones de acción */
-.action-buttons .btn {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.action-buttons .btn i {
-    font-size: 1.1rem;
-}
-
-.action-buttons .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-color);
-}
-
+/* Estilos para botones */
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 1rem;
+    }
+
+    .form-container .card-header {
+        padding: 1rem;
+    }
+
+    .form-container .card-body {
+        padding: 1rem;
+    }
+
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
 }
 
 /* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes formAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-.slide-in {
-    animation: slideIn 0.5s ease-out forwards;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .welcome-section {
-        padding: 1.5rem;
-    }
-
-    .welcome-section h1 {
-        font-size: 1.5rem;
-    }
-
-    .table-responsive {
-        margin: 0 -15px;
-        border-radius: 0;
-    }
-
-    .action-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .action-buttons .btn {
-        width: 100%;
-    }
-
-    .search-box {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
+.form-container {
+    animation: formAppear 0.5s ease-out;
 }

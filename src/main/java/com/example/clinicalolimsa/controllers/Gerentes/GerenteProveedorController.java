@@ -2,9 +2,11 @@ package com.example.clinicalolimsa.controllers.Gerentes;
 
 import com.example.clinicalolimsa.models.Proveedor;
 import com.example.clinicalolimsa.repositories.ProveedorRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -40,7 +42,12 @@ public class GerenteProveedorController {
     }
 
     @PostMapping("/guardar")
-    public String guardarProveedor(@ModelAttribute Proveedor proveedor) {
+    public String guardarProveedor(@Valid @ModelAttribute("proveedor") Proveedor proveedor,
+                                   BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "gerente/gerenteproveedores/formulario";
+        }
+
         if (proveedor.getId() == null) {
             proveedor.setFechaRegistro(new Date());
         }

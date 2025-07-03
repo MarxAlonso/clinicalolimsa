@@ -12,43 +12,83 @@
 <script th:src="@{/js/gerente/navbargerente.js}"></script>
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between mb-3">
-        <h2>Lista de Citas</h2>
-        <a href="/gerente/gerentecitas/nuevo" class="btn btn-primary">Nueva Cita</a>
-        <a href="/gerente/gerentecitas/exportar/excel" class="btn btn-success mb-3">Exportar a Excel</a>
+    <!-- Sección de bienvenida -->
+    <div class="welcome-section fade-in mb-4">
+        <i class="bi bi-person-circle"></i>
+        <h1>Panel de Gestión de Citas</h1>
+        <p class="text-muted">Administre las citas médicas de manera eficiente</p>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+    <div class="d-flex justify-content-between mb-3 slide-in">
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" class="form-control" placeholder="Buscar citas..." id="searchInput">
+        </div>
+        <div class="action-buttons">
+            <a href="/gerente/gerentecitas/nuevo" class="btn btn-primary me-2">
+                <i class="bi bi-plus-circle"></i> Nueva Cita
+            </a>
+            <a href="/gerente/gerentecitas/exportar/excel" class="btn btn-success">
+                <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive card-table fade-in">
+        <table class="table table-hover">
+            <thead>
             <tr>
-                <th>ID</th>
-                <th>Paciente</th>
-                <th>Médico</th>
-                <th>Especialidad</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Motivo</th>
-                <th>Estado</th>
-                <th>Observaciones</th>
-                <th>Acciones</th>
+                <th><i class="bi bi-hash"></i> ID</th>
+                <th><i class="bi bi-person"></i> Paciente</th>
+                <th><i class="bi bi-hospital"></i> Médico</th>
+                <th><i class="bi bi-briefcase-medical"></i> Especialidad</th>
+                <th><i class="bi bi-calendar-event"></i> Fecha</th>
+                <th><i class="bi bi-clock"></i> Hora</th>
+                <th><i class="bi bi-journal-text"></i> Motivo</th>
+                <th><i class="bi bi-check-circle"></i> Estado</th>
+                <th><i class="bi bi-chat-left-text"></i> Observaciones</th>
+                <th><i class="bi bi-gear"></i> Acciones</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="cita : ${citas}">
+            <tr th:each="cita : ${citas}" class="table-row-hover">
                 <td th:text="${cita.id}"></td>
-                <td th:text="${cita.paciente.firstName + ' ' + cita.paciente.lastName}"></td>
-                <td th:text="${cita.medico.nombres + ' ' + cita.medico.apellidos}"></td>
-                <td th:text="${cita.medico.especialidad}"></td>
-                <td th:text="${#dates.format(cita.fecha, 'dd/MM/yyyy')}"></td>
-                <td th:text="${#dates.format(cita.hora, 'HH:mm')}"></td>
-                <td th:text="${cita.motivo}"></td>
-                <td th:text="${cita.estado}"></td>
-                <td th:text="${cita.observaciones ?: 'Sin observaciones'}"></td>
                 <td>
-                    <a th:href="@{/gerente/gerentecitas/editar/{id}(id=${cita.id})}" class="btn btn-warning btn-sm">Editar</a>
+                    <i class="bi bi-person-circle text-primary"></i>
+                    <span th:text="${cita.paciente.firstName + ' ' + cita.paciente.lastName}"></span>
+                </td>
+                <td>
+                    <i class="bi bi-person-badge text-info"></i>
+                    <span th:text="${cita.medico.nombres + ' ' + cita.medico.apellidos}"></span>
+                </td>
+                <td>
+                    <span class="badge bg-info" th:text="${cita.medico.especialidad}"></span>
+                </td>
+                <td>
+                    <i class="bi bi-calendar3"></i>
+                    <span th:text="${#dates.format(cita.fecha, 'dd/MM/yyyy')}"></span>
+                </td>
+                <td>
+                    <i class="bi bi-clock"></i>
+                    <span th:text="${#dates.format(cita.hora, 'HH:mm')}"></span>
+                </td>
+                <td>
+                    <span class="text-wrap" th:text="${cita.motivo}"></span>
+                </td>
+                <td>
+                    <span th:class="${cita.estado == 'Pendiente' ? 'badge bg-warning' : (cita.estado == 'Completada' ? 'badge bg-success' : 'badge bg-secondary')}" th:text="${cita.estado}"></span>
+                </td>
+                <td>
+                    <span class="text-wrap" th:text="${cita.observaciones ?: 'Sin observaciones'}"></span>
+                </td>
+                <td class="action-buttons">
+                    <a th:href="@{/gerente/gerentecitas/editar/{id}(id=${cita.id})}" class="btn btn-warning btn-sm me-1">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
                     <a th:href="@{/gerente/gerentecitas/eliminar/{id}(id=${cita.id})}" class="btn btn-danger btn-sm"
-                       onclick="return confirm('¿Estás seguro de eliminar esta cita?')">Eliminar</a>
+                       onclick="return confirm('¿Estás seguro de eliminar esta cita?')">
+                        <i class="bi bi-trash"></i>
+                    </a>
                 </td>
             </tr>
             </tbody>

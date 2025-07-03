@@ -56,7 +56,6 @@
                     <th><i class="bi bi-card-text me-2"></i>Documento</th>
                     <th><i class="bi bi-shield-plus me-2"></i>Emergencia</th>
                     <th><i class="bi bi-calendar-check me-2"></i>F. Registro</th>
-                    <th><i class="bi bi-gear me-2"></i>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -88,21 +87,6 @@
                         </div>
                     </td>
                     <td th:text="${pac.createdAt != null} ? ${#dates.format(pac.createdAt, 'dd/MM/yyyy HH:mm')} : 'N/A'"></td>
-                    <td>
-                        <div class="d-flex gap-2">
-                            <a th:href="@{/medicos/medicospaciente/editar/{id}(id=${pac.id})}" 
-                               class="btn btn-warning btn-sm d-flex align-items-center gap-2">
-                                <i class="bi bi-pencil-square"></i>
-                                Editar
-                            </a>
-                            <a th:href="@{/medicos/medicospaciente/eliminar/{id}(id=${pac.id})}" 
-                               class="btn btn-danger btn-sm d-flex align-items-center gap-2"
-                               onclick="return confirm('¿Estás seguro de eliminar este paciente?')">
-                                <i class="bi bi-trash"></i>
-                                Eliminar
-                            </a>
-                        </div>
-                    </td>
                 </tr>
                 </tbody>
             </table>

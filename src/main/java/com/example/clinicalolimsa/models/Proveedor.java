@@ -1,7 +1,7 @@
 package com.example.clinicalolimsa.models;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.*;
 import java.util.Date;
 
 @Entity
@@ -12,18 +12,32 @@ public class Proveedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank(message = "El nombre de la empresa no puede estar vacío")
+    @Size(min = 2, max = 100)
     private String nombreEmpresa;
 
+    @NotBlank(message = "El RUC es obligatorio")
+    @Pattern(regexp = "\\d{11}", message = "El RUC debe tener 11 dígitos")
     private String ruc;
 
+    @NotBlank(message = "La dirección no puede estar vacía")
     private String direccion;
 
+    @NotBlank(message = "El teléfono es obligatorio")
+    @Pattern(regexp = "\\d{9}", message = "El teléfono debe tener 9 dígitos")
     private String telefono;
 
+    @NotBlank(message = "El nombre del gerente es obligatorio")
     private String nombreGerente;
 
+    @NotBlank(message = "El DNI del gerente es obligatorio")
+    @Pattern(regexp = "\\d{8}", message = "El DNI debe tener 8 dígitos")
     private String dniGerente;
+
+    @NotBlank(message = "Debe seleccionar el tipo de proveedor")
     private String tipoProveedor;
+
+    @NotBlank(message = "El país de origen es obligatorio")
     private String paisOrigen;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaRegistro;
