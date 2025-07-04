@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     backdrop-filter: blur(6px);
-    height: 100vh;
+    height: 120vh;
   }
 
   .card {
@@ -27,4 +27,15 @@ body {
   }
   .btn-success {
   box-shadow: 0 6px 6px rgb(109, 109, 109); 
+}
+@media (max-width: 800px){
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/fondo2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 50px;
+    backdrop-filter: blur(6px);
+    height: 250vh;
+  }
 }
