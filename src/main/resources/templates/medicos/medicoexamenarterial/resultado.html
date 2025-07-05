@@ -50,14 +50,31 @@
             <p id="resultadoDiagnostico" class="fw-bold text-danger mb-0"></p>
         </div>
 
+        <div class="text-center mt-3">
+            <button class="btn btn-outline-success shadow-sm rounded-pill" onclick="exportarGrafico()">
+                <i class="bi bi-bar-chart-line-fill me-2"></i>Descargar Gráfica
+            </button>
+        </div>
+
+        <div class="text-center mt-2">
+            <button class="btn btn-danger shadow-sm rounded-pill" onclick="descargarGraficoPDF()">
+                <i class="bi bi-file-earmark-pdf-fill me-2"></i>Descargar Informe en PDF
+            </button>
+        </div>
+
         <div class="text-center mt-4">
             <a th:href="@{/medicos/arterial/ver}" class="btn btn-outline-primary px-4 rounded-pill shadow-sm">
-                <i class="fas fa-arrow-left me-2"></i>Volver
+                <i class="bi bi-arrow-left-circle me-2"></i>Volver
             </a>
         </div>
+
+
     </div>
 </div>
-
+<!-- html2canvas para capturar elementos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<!-- jsPDF para generar PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script th:inline="javascript">
     let sistolicaPromedio = [[${sistolicaPromedio}]];
@@ -141,6 +158,59 @@
         resultadoEl.textContent = diagnostico;
         resultadoEl.classList.add("animate__animated", "animate__fadeIn");
     });
+</script>
+<script>
+    function exportarGrafico() {
+        const canvas = document.getElementById("graficoPresion");
+        const link = document.createElement('a');
+        link.download = "grafico_presion_paciente.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    }
+</script>
+<script>
+    async function descargarGraficoPDF() {
+        const graficoContainer = document.querySelector('.chart-container');
+        const canvas = await html2canvas(graficoContainer, { scale: 2 });
+
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF();
+
+        // Título
+        pdf.setFontSize(16);
+        pdf.setTextColor(40);
+        pdf.text("Resultado de Examen Arterial", 105, 15, null, null, "center");
+
+        // Datos del paciente (opcional: puedes agregarlos más dinámicamente)
+        const nombre = document.querySelector('h5 span').textContent.trim();
+        const fecha = document.querySelector('p span').textContent.trim();
+        pdf.setFontSize(12);
+        pdf.text(nombre, 10, 30);
+        pdf.text("Fecha del examen: " + fecha, 10, 40);
+
+        // Imagen del gráfico
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = 190;
+        const imgHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, 'PNG', 10, 50, pdfWidth, imgHeight);
+
+        // Observaciones
+        const observaciones = document.querySelector(".alert-info p").textContent.trim();
+        pdf.text("Observaciones:", 10, 60 + imgHeight);
+        pdf.setFontSize(11);
+        pdf.text(observaciones, 10, 70 + imgHeight);
+
+        // Diagnóstico
+        const diagnostico = document.getElementById("resultadoDiagnostico").textContent.trim();
+        pdf.setFontSize(12);
+        pdf.text("Diagnóstico automático:", 10, 80 + imgHeight);
+        pdf.setFont("helvetica", "bold");
+        pdf.text(diagnostico, 10, 90 + imgHeight);
+
+        // Guardar PDF
+        pdf.save("informe_presion_paciente.pdf");
+    }
 </script>
 
 <!-- Scripts -->
