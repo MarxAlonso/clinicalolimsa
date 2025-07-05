@@ -26,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
                              <i class="bi bi-capsule"></i> Examen Arterial Paciente
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/medicos/sangre/ver">
+                             <i class="bi bi-capsule"></i> Examen Sangre Paciente
+                        </a>
+                    </li>
                 </ul>
                 <a href="/" class="btn btn-danger logout-link">
                     <i class="bi bi-power me-2"></i> Cerrar Sesión
