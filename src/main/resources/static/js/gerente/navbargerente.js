@@ -41,6 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             <i class="bi bi-people-fill"></i> Gestión de Pacientes
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/gerente/gerentecompras">
+                            <i class="bi bi-bag"></i> Gestión de Compras
+                        </a>
+                    </li>
                 </ul>
                 <a href="/" class="btn btn-danger logout-link">
                     <i class="bi bi-power"></i> Cerrar Sesión
