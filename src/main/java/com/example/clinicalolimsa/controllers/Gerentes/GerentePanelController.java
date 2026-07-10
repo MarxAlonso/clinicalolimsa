@@ -32,7 +32,7 @@ public class GerentePanelController {
         model.addAttribute("totalMedicamentos", medicamentosRepository.count());
         model.addAttribute("totalPacientes", pacienteRepository.count());
 
-        return "/gerente/gerentepanel";
+        return "gerente/gerentepanel";
     }
 
 }

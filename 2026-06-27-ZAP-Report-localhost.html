@@ -1,0 +1,2591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAP por Informe de Escaneo Checkmarx</title>
+<link
+	href="2026-06-27-ZAP-Report-localhost/normalize/normalize.css" rel="stylesheet">
+<link
+	href="2026-06-27-ZAP-Report-localhost/themes/original/main.css" rel="stylesheet">
+<link
+	href="2026-06-27-ZAP-Report-localhost/themes/original/colors.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>ZAP por Informe de Escaneo Checkmarx</h1>
+		<p>
+			<span>Generated with</span> <a href="https://zaproxy.org"><img
+				src="2026-06-27-ZAP-Report-localhost/zap32x32.png" alt="The ZAP logo" class="zap-logo">ZAP</a>
+			<span>on sáb 27 jun 2026, at 18:54:14</span>
+		</p>
+		<p>ZAP Versión: 2.17.0</p>
+		<p>
+			ZAP by <a href="https://checkmarx.com/">Checkmarx</a>
+		</p>
+	</header>
+
+	<main>
+
+		<section id="contents" class="contents">
+			<h2>Contents</h2>
+			<nav>
+				<ol>
+					<li><a
+						href="#about-this-report">About This Report</a>
+						<ol>
+							
+							<li><a
+								href="#report-parameters">Report Parameters</a></li>
+						</ol></li>
+					<data-th-block>
+					<li><a
+						href="#summaries">Summaries</a>
+						<ol>
+							<li><a
+								href="#risk-confidence-counts">Alert Counts by Risk and Confidence</a></li>
+							<li><a
+								href="#site-risk-counts">Alert Counts by Site and Risk</a></li>
+							<li><a
+								href="#alert-type-counts">Alert Counts by Alert Type</a></li>
+							
+						</ol></li>
+					<li><a
+						href="#alerts">Alerts</a>
+						<ol>
+							
+							 
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-2-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Medio</span>, <span>Confidence</span>=<span
+									class="confidence-level">Alta</span> <span>(2)</span></a></li>
+							
+							
+							
+							
+							  
+							
+							
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-1-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Bajo</span>, <span>Confidence</span>=<span
+									class="confidence-level">Media</span> <span>(2)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-0-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Informativo</span>, <span>Confidence</span>=<span
+									class="confidence-level">Alta</span> <span>(1)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-0-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Informativo</span>, <span>Confidence</span>=<span
+									class="confidence-level">Media</span> <span>(2)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-0-confidence-1"><span>Risk</span>=<span
+									class="risk-level">Informativo</span>, <span>Confidence</span>=<span
+									class="confidence-level">Baja</span> <span>(1)</span></a></li>
+							  
+						</ol></li>
+					<li><a
+						href="#appendix">Appendix</a>
+						<ol>
+							<li><a
+								href="#alert-types">Alert Types</a></li>
+						</ol></li>
+					</data-th-block>
+				</ol>
+			</nav>
+		</section>
+
+		<section
+			id="about-this-report" class="about-this-report">
+			<h2>About This Report</h2>
+
+			
+
+			<section
+				id="report-parameters">
+				<h3>Report Parameters</h3>
+				<div class="report-parameters--container">
+					<h4>Contexts</h4>
+					
+					
+					<p>No contexts were selected, so all contexts were included by default.</p>
+					  
+
+					<h4>Sites</h4>
+					
+					<p>The following sites were included:</p>
+					<ul class="sites-list">
+						<li><span class="site">http://localhost:8083</span></li>
+					</ul>
+					
+					<p>(If no sites were selected, all sites were included by default.)</p>
+					<p>An included site must also be within one of the included contexts for its data to be included in the report.</p>
+
+					<h4>Risk levels</h4>
+					<p>
+						<span>Included</span>:
+						 
+						<span class="included-risk-codes"><span class="risk-level">Alto</span>, <span class="risk-level">Medio</span>, <span class="risk-level">Bajo</span>, <span class="risk-level">Informativo</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						 <span>None</span>
+						
+					</p>
+
+					<h4>Confidence levels</h4>
+					<p>
+						<span>Included</span>:
+						
+						
+						<span class="included-confidence-codes"><span class="confidence-level">Confirmado por Usuario</span>, <span class="confidence-level">Alta</span>, <span class="confidence-level">Media</span>, <span class="confidence-level">Baja</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						
+						
+						<span class="included-confidence-codes"> <span class="confidence-level">Confirmado por Usuario</span>, <span class="confidence-level">Alta</span>, <span class="confidence-level">Media</span>, <span class="confidence-level">Baja</span>, <span class="confidence-level">Falso positivo</span></span>
+					</p>
+				</div>
+			</section>
+		</section>
+
+		
+		<section>
+			
+		</section>
+		
+		<section id="summaries" class="summaries">
+			<h2>Summaries</h2>
+
+			<section
+				id="risk-confidence-counts">
+				<h3>Alert Counts by Risk and Confidence</h3>
+				<table class="risk-confidence-counts-table">
+					<caption>
+						<p>This table shows the number of alerts for each level of risk and confidence included in the report.</p>
+						<p>(The percentages in brackets represent the count as a percentage of the total number of alerts included in the report, rounded to one decimal place.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%">
+						<col style="width: 14.0%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup"
+								colspan="5">Confidence</th>
+						</tr>
+						<tr>
+							<th scope="col">Confirmado por Usuario</th>
+							<th scope="col">Alta</th>
+							<th scope="col">Media</th>
+							<th scope="col">Baja</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="5">Risk</th>
+							<th scope="row">Alto</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0 %)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Medio</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(25,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(25,0 %)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Bajo</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(25,0 %)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(25,0 %)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Informativo</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(12,5 %)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(25,0 %)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(12,5 %)</span></td>
+							<td><span>4</span><br> <span class="additional-info-percentages">(50,0 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Total</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0 %)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(37,5 %)</span></td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(50,0 %)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(12,5 %)</span></td>
+							<td><span>8</span><br> <span
+								class="additional-info-percentages">(100%)</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="site-risk-counts">
+				<h3>Alert Counts by Site and Risk</h3>
+				<table class="site-risk-counts-table">
+					<caption>
+						<p>This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.</p>
+						<p>Alerts with a confidence level of &quot;False Positive&quot; have been excluded from these counts.</p>
+						<p>(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="4">Risk</th>
+						</tr>
+						<tr>
+							<th scope="col">
+								<span>Alto</span><br>  <span
+									class="additional-info-percentages">(= Alto)</span>  
+							</th>
+							<th scope="col">
+								<span>Medio</span><br>   <span
+									class="additional-info-percentages">(&gt;= Medio)</span> 
+							</th>
+							<th scope="col">
+								<span>Bajo</span><br>   <span
+									class="additional-info-percentages">(&gt;= Bajo)</span> 
+							</th>
+							<th scope="col">
+								<span>Informativo</span><br>   <span
+									class="additional-info-percentages">(&gt;= Informativo)</span> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="1">Site</th>
+							<th scope="row">http://localhost:8083</th>
+							
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(2)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(4)</span></td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(8)</span></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="alert-type-counts">
+				<h3>Alert Counts by Alert Type</h3>
+				<table class="alert-type-counts-table">
+					<caption>
+						<p>This table shows the number of alerts of each alert type, together with the alert type&#39;s risk level.</p>
+						<p>(The percentages in brackets represent each count as a percentage, rounded to one decimal place, of the total number of alerts included in this report.)</p>
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">Alert type</th>
+							<th scope="col">Risk</th>
+							<th scope="col">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-0">Cabecera Content Security Policy (CSP) no configurada</a></th>
+							<td class="risk-level">Medio</td>
+							<td><span>5</span><br> <span
+								class="additional-info-percentages">(62,5 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-1">Falta atributo de integridad de recursos secundarios</a></th>
+							<td class="risk-level">Medio</td>
+							<td><span>5</span><br> <span
+								class="additional-info-percentages">(62,5 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-2">Cookie sin el atributo SameSite</a></th>
+							<td class="risk-level">Bajo</td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(37,5 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-3">Inclusión de archivos fuente JavaScript entre dominios</a></th>
+							<td class="risk-level">Bajo</td>
+							<td><span>5</span><br> <span
+								class="additional-info-percentages">(62,5 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-4">Aplicación Web Moderna</a></th>
+							<td class="risk-level">Informativo</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(25,0 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-5">Atributo de elemento HTML controlable por el usuario (XSS potencial)</a></th>
+							<td class="risk-level">Informativo</td>
+							<td><span>20</span><br> <span
+								class="additional-info-percentages">(250,0 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-6">Petición de Autenticación Identificada</a></th>
+							<td class="risk-level">Informativo</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(25,0 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-7">Respuesta de Gestión de Sesión Identificada</a></th>
+							<td class="risk-level">Informativo</td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(37,5 %)</span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Total</th>
+							<td></td>
+							<td>8</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+			
+			
+		</section>
+
+		<section id="alerts" class="alerts">
+			<h2>Alerts</h2>
+			<ol>
+				
+				 
+				 
+				
+				
+				<li id="alerts--risk-2-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Medio</span>, <span>Confidence</span>=<span
+							class="confidence-level">Alta</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8083</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-0">Cabecera Content Security Policy (CSP) no configurada</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8083</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/">OWASP_2025_A02</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>La Política de seguridad de contenido (CSP) es una capa adicional de seguridad que ayuda a detectar y mitigar ciertos tipos de ataques, incluidos Cross Site Scripting (XSS) y ataques de inyección de datos. Estos ataques se utilizan para todo, desde el robo de datos hasta la desfiguración del sitio o la distribución de malware. CSP proporciona un conjunto de encabezados HTTP estándar que permiten a los propietarios de sitios web declarar fuentes de contenido aprobadas que los navegadores deberían poder cargar en esa página; los tipos cubiertos son JavaScript, CSS, marcos HTML, fuentes, imágenes y objetos incrustados como applets de Java, ActiveX, archivos de audio y video.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (228 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8083 HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (309 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/html;charset=UTF-8
+Content-Language: es-PE
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+content-length: 8529
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (8529 bytes)</summary>
+				
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Clinica Lolimsa&lt;/title&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/index.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;nav class=&quot;navbar navbar-expand-lg navbar-custom&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;i class=&quot;bi bi-heart-pulse-fill me-2&quot;&gt;&lt;/i&gt;Clinica Lolimsa&lt;/a&gt;
+    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent&quot;&gt;
+      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;
+      &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a class=&quot;nav-link&quot; href=&quot;/&quot;&gt;Inicio&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a class=&quot;nav-link&quot; href=&quot;/contact&quot;&gt;Contacto&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class=&quot;navbar-nav&quot;&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a href=&quot;/register&quot; class=&quot;btn btn-light me-2&quot;&gt;&lt;i class=&quot;bi bi-person-plus-fill&quot;&gt;&lt;/i&gt; Registro&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a href=&quot;/login&quot; class=&quot;btn btn-outline-light&quot;&gt;&lt;i class=&quot;bi bi-box-arrow-in-right&quot;&gt;&lt;/i&gt; Iniciar Sesión&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- Sección con banner rotativo --&gt;
+&lt;section class=&quot;banner text-center animate__animated animate__fadeIn&quot;&gt;
+  &lt;div class=&quot;background-slider&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;container content&quot;&gt;
+    &lt;h1 class=&quot;display-4 mb-4&quot;&gt;Bienvenidos a Clínica Lolimsa&lt;/h1&gt;
+    &lt;p class=&quot;lead mb-5&quot;&gt;Cuidando de tu salud con tecnología y profesionalismo&lt;/p&gt;
+    &lt;a href=&quot;/citas&quot; class=&quot;btn btn-light btn-lg&quot;&gt;Agenda tu Cita&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class=&quot;container py-5&quot;&gt;
+  &lt;h2 class=&quot;text-center mb-5 animate-on-scroll&quot;&gt;Nuestros Servicios&lt;/h2&gt;
+
+  &lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;card service-card animate-on-scroll&quot;&gt;
+        &lt;img src=&quot;/img/consulta.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Consulta Médica&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;Consulta Médica&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;Atención médica personalizada con los mejores especialistas.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;card service-card animate-on-scroll&quot;&gt;
+        &lt;img src=&quot;/img/laboratorio.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Laboratorio&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;Laboratorio Clínico&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;Análisis clínicos con tecnología de última generación.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;card service-card animate-on-scroll&quot;&gt;
+        &lt;img src=&quot;/img/emergencia.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Emergencias&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;Emergencias 24/7&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;Atención de emergencias las 24 horas del día.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Testimonios --&gt;
+&lt;section class=&quot;bg-light py-5&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h2 class=&quot;text-center mb-5 animate-on-scroll&quot;&gt;Testimonios de Pacientes&lt;/h2&gt;
+    &lt;div class=&quot;row g-4&quot;&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;div class=&quot;card p-3 h-100 animate-on-scroll&quot;&gt;
+          &lt;blockquote class=&quot;blockquote mb-0&quot;&gt;
+            &lt;p&gt;&quot;Excelente atención médica, los doctores son muy profesionales y empáticos.&quot;&lt;/p&gt;
+            &lt;footer class=&quot;blockquote-footer&quot;&gt;María López&lt;/footer&gt;
+          &lt;/blockquote&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;div class=&quot;card p-3 h-100 animate-on-scroll&quot;&gt;
+          &lt;blockquote class=&quot;blockquote mb-0&quot;&gt;
+            &lt;p&gt;&quot;Rápido, eficiente y con tecnología moderna. Altamente recomendado.&quot;&lt;/p&gt;
+            &lt;footer class=&quot;blockquote-footer&quot;&gt;Carlos Fernández&lt;/footer&gt;
+          &lt;/blockquote&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;div class=&quot;card p-3 h-100 animate-on-scroll&quot;&gt;
+          &lt;blockquote class=&quot;blockquote mb-0&quot;&gt;
+            &lt;p&gt;&quot;Fui por una emergencia y me atendieron en minutos, gracias Clínica Lolimsa.&quot;&lt;/p&gt;
+            &lt;footer class=&quot;blockquote-footer&quot;&gt;Lucía Ramírez&lt;/footer&gt;
+          &lt;/blockquote&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Sección de Preguntas Frecuentes --&gt;
+&lt;section class=&quot;py-5&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h2 class=&quot;text-center mb-4&quot;&gt;Preguntas Frecuentes&lt;/h2&gt;
+    &lt;div class=&quot;accordion&quot; id=&quot;faqAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;faq1&quot;&gt;
+          &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse1&quot;&gt;
+            ¿Cómo puedo agendar una cita?
+          &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;collapse1&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#faqAccordion&quot;&gt;
+          &lt;div class=&quot;accordion-body&quot;&gt;
+            Puedes agendar tu cita en línea desde nuestro sitio web o llamando al número de atención al cliente.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;faq2&quot;&gt;
+          &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse2&quot;&gt;
+            ¿Atienden emergencias las 24 horas?
+          &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;collapse2&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#faqAccordion&quot;&gt;
+          &lt;div class=&quot;accordion-body&quot;&gt;
+            Sí, nuestro servicio de emergencias está disponible todos los días, las 24 horas.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;faq3&quot;&gt;
+          &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse3&quot;&gt;
+            ¿Aceptan seguros médicos?
+          &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;collapse3&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#faqAccordion&quot;&gt;
+          &lt;div class=&quot;accordion-body&quot;&gt;
+            Sí, trabajamos con las principales aseguradoras del país. Consulta nuestra lista completa de convenios en la sección de servicios.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Footer --&gt;
+&lt;footer class=&quot;bg-dark text-light py-4&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5&gt;Clínica Lolimsa&lt;/h5&gt;
+        &lt;p&gt;Comprometidos con tu bienestar desde 1998.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5&gt;Enlaces Rápidos&lt;/h5&gt;
+        &lt;ul class=&quot;list-unstyled&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;/about&quot; class=&quot;text-decoration-none text-light&quot;&gt;Sobre Nosotros&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;/services&quot; class=&quot;text-decoration-none text-light&quot;&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;/contact&quot; class=&quot;text-decoration-none text-light&quot;&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5&gt;Síguenos&lt;/h5&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-light me-2&quot;&gt;&lt;i class=&quot;bi bi-facebook&quot;&gt;&lt;/i&gt; Facebook&lt;/a&gt;&lt;br&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-light me-2&quot;&gt;&lt;i class=&quot;bi bi-instagram&quot;&gt;&lt;/i&gt; Instagram&lt;/a&gt;&lt;br&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-light&quot;&gt;&lt;i class=&quot;bi bi-twitter-x&quot;&gt;&lt;/i&gt; Twitter&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;text-center mt-3&quot;&gt;
+      &lt;small&gt;&amp;copy; 2025 Clínica Lolimsa. Todos los derechos reservados.&lt;/small&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+
+
+&lt;!-- Scripts --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/js/index.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  // Animación al hacer scroll
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(entries =&gt; {
+    entries.forEach(entry =&gt; {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(&#39;visible&#39;);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(&#39;.animate-on-scroll&#39;).forEach(element =&gt; {
+    observer.observe(element);
+  });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Asegúrese de que su servidor web, servidor de aplicaciones, balanceador de carga, etc. esté configurado para establecer la cabecera Content-Security-Policy.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-1">Falta atributo de integridad de recursos secundarios</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8083/register</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/345.html">CWE-345</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/">OWASP_2025_A02</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Falta el atributo de integridad en una etiqueta de script o enlace servida por un servidor externo. La etiqueta de integridad evita que un atacante que haya obtenido acceso a este servidor inyecte un contenido malicioso.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (322 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8083/register HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://localhost:8083
+Cookie: JSESSIONID=571720B96A86CC6786ACD6BE1B9FCCD8
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (309 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/html;charset=UTF-8
+Content-Language: es-PE
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+content-length: 9134
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (9134 bytes)</summary>
+				
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;Registro Clinica Lolimsa&lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH&quot; crossorigin=&quot;anonymous&quot;&gt;
+      &lt;link
+              href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css&quot;
+              rel=&quot;stylesheet&quot;
+      /&gt;
+      &lt;link
+              rel=&quot;stylesheet&quot;
+              href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;
+      /&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/registro.css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div class=&quot;container d-flex justify-content-center align-items-center min-vh-100&quot;&gt;
+      &lt;div class=&quot;card p-4 col-md-10 col-lg-9&quot;&gt;
+          &lt;div class=&quot;text-center mb-4&quot;&gt;
+              &lt;h3&gt;&lt;i class=&quot;fas fa-user-plus me-2&quot;&gt;&lt;/i&gt;Registro de Paciente&lt;/h3&gt;
+          &lt;/div&gt;
+
+          
+
+          &lt;form method=&quot;post&quot;&gt;
+              &lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;WfYcsmne6lbuJDAvSEEX6PLC65KelCQ8dloqGEdxwjF4Fs4SO8Yki1G6jm_DQQhKLGwjjMSmxqquohQRRmIYLHdH9wNNdagq&quot;/&gt;
+
+              &lt;div class=&quot;row g-3&quot;&gt;
+                  &lt;!-- Datos personales --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Nombre&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-user&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Nombre&quot; id=&quot;firstName&quot; name=&quot;firstName&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Apellido&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-user&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Apellido&quot; id=&quot;lastName&quot; name=&quot;lastName&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Email&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-envelope&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Correo electrónico&quot; id=&quot;email&quot; name=&quot;email&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Teléfono&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-phone&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Teléfono&quot; id=&quot;phone&quot; name=&quot;phone&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-12&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Dirección&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-home&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Dirección&quot; id=&quot;address&quot; name=&quot;address&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Más datos --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Sexo&lt;/label&gt;
+                      &lt;select class=&quot;form-select&quot; id=&quot;sexo&quot; name=&quot;sexo&quot;&gt;
+                          &lt;option value=&quot;&quot;&gt;Seleccionar&lt;/option&gt;
+                          &lt;option value=&quot;Masculino&quot;&gt;Masculino&lt;/option&gt;
+                          &lt;option value=&quot;Femenino&quot;&gt;Femenino&lt;/option&gt;
+                      &lt;/select&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Fecha de Nacimiento&lt;/label&gt;
+                      &lt;input type=&quot;date&quot; class=&quot;form-control&quot; id=&quot;fechaNacimiento&quot; name=&quot;fechaNacimiento&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Tipo de Sangre&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. O+&quot; id=&quot;tipoSangre&quot; name=&quot;tipoSangre&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;DNI / Pasaporte&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Documento&quot; id=&quot;documentoIdentidad&quot; name=&quot;documentoIdentidad&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Nacionalidad&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;nacionalidad&quot; name=&quot;nacionalidad&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Estado Civil&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;estadoCivil&quot; name=&quot;estadoCivil&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Ocupación&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;ocupacion&quot; name=&quot;ocupacion&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Emergencia --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Contacto de Emergencia - Nombre&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactoEmergenciaNombre&quot; name=&quot;contactoEmergenciaNombre&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Teléfono de Emergencia&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactoEmergenciaTelefono&quot; name=&quot;contactoEmergenciaTelefono&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Relación con el contacto&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactoEmergenciaRelacion&quot; name=&quot;contactoEmergenciaRelacion&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Salud --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Alergias&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. Penicilina, Polen&quot; id=&quot;alergias&quot; name=&quot;alergias&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Enfermedades Previas&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. Diabetes, Asma&quot; id=&quot;enfermedadesPrevias&quot; name=&quot;enfermedadesPrevias&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Medicamentos Actuales&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. Ibuprofeno, Insulina&quot; id=&quot;medicamentosActuales&quot; name=&quot;medicamentosActuales&quot; value=&quot;&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Seguridad --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Contraseña&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Contraseña&quot; id=&quot;password&quot; name=&quot;password&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Confirmar Contraseña&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Repetir contraseña&quot; id=&quot;confirmPassword&quot; name=&quot;confirmPassword&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;d-flex justify-content-center mt-4 gap-3&quot;&gt;
+                  &lt;button type=&quot;submit&quot; class=&quot;btn btn-success px-4 rounded-pill&quot;&gt;
+                      &lt;i class=&quot;fas fa-save me-2&quot;&gt;&lt;/i&gt;Registrar
+                  &lt;/button&gt;
+                  &lt;a href=&quot;/&quot; class=&quot;btn btn-outline-danger px-4 rounded-pill&quot;&gt;
+                      &lt;i class=&quot;fas fa-times me-2&quot;&gt;&lt;/i&gt;Cancelar
+                  &lt;/a&gt;
+              &lt;/div&gt;
+          &lt;/form&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Bootstrap and icons --&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://kit.fontawesome.com/a076d05399.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>&lt;link
+              href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css&quot;
+              rel=&quot;stylesheet&quot;
+      /&gt;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Proporcionar un atributo de integridad válido a la etiqueta.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				
+				
+				  
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-1-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Bajo</span>, <span>Confidence</span>=<span
+							class="confidence-level">Media</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8083</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-2">Cookie sin el atributo SameSite</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8083/robots.txt</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1275.html">CWE-1275</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/">OWASP_2025_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Se ha establecido una cookie sin el atributo SameSite, lo que significa que la cookie puede ser enviada como resultado de una solicitud &#39;cross-site&#39;. El atributo SameSite es una medida eficaz para contrarrestar la falsificación de peticiones entre sitios, la inclusión de scripts entre sitios y los ataques de sincronización.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (239 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8083/robots.txt HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (356 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302
+Set-Cookie: JSESSIONID=10EF2038CBA4FE8DD428A3F138256A16; Path=/; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Location: http://localhost:8083/login
+Content-Length: 0
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>JSESSIONID</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Set-Cookie: JSESSIONID</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Asegúrese que el atributo SameSite está establecido como &#39;lax&#39; o idealmente &#39;strict&#39; para todas las cookies.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-3">Inclusión de archivos fuente JavaScript entre dominios</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8083/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A08_2025-Software_or_Data_Integrity_Failures/">OWASP_2025_A08</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/">OWASP_2021_A08</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/829.html">CWE-829</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>La página incluye uno o más archivos de script de un dominio de terceros.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (330 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8083/login HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://localhost:8083/robots.txt
+Cookie: JSESSIONID=571720B96A86CC6786ACD6BE1B9FCCD8
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (309 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/html;charset=UTF-8
+Content-Language: es-PE
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+content-length: 2961
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2961 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot;&gt;
+    &lt;title&gt;Login - Clínica Lolimsa&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container py-5&quot;&gt;
+    &lt;div class=&quot;login-container mx-auto p-4&quot; style=&quot;width: 400px&quot;&gt;
+        &lt;h2 class=&quot;text-center mb-4&quot;&gt;INICIAR SESIÓN&lt;/h2&gt;
+        
+
+        &lt;form method=&quot;post&quot; class=&quot;needs-validation&quot; novalidate&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot;
+                   value=&quot;zMmi2XBoKtwjDssps8N0olll6QqdfOiuVWiqiVBvA323pPbdrvma4EgMTuUOa_NM1-5Axm8BxDKtStiDZVCYvWBZNk-Cx5Dl&quot; /&gt;
+            &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label class=&quot;form-label&quot;&gt;&lt;i class=&quot;fas fa-envelope me-2&quot;&gt;&lt;/i&gt;Email&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; name=&quot;email&quot; required
+                       placeholder=&quot;Ingrese su email&quot;/&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label class=&quot;form-label&quot;&gt;&lt;i class=&quot;fas fa-lock me-2&quot;&gt;&lt;/i&gt;Contraseña&lt;/label&gt;
+                &lt;input class=&quot;form-control&quot; type=&quot;password&quot; name=&quot;password&quot; required
+                       placeholder=&quot;Ingrese su contraseña&quot;/&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;row mb-3&quot;&gt;
+                &lt;div class=&quot;col d-grid&quot;&gt;
+                    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;
+                        &lt;i class=&quot;fas fa-sign-in-alt me-2&quot;&gt;&lt;/i&gt;Ingresar
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col d-grid&quot;&gt;
+                    &lt;a href=&quot;/&quot; class=&quot;btn btn-outline-primary&quot;&gt;
+                        &lt;i class=&quot;fas fa-times me-2&quot;&gt;&lt;/i&gt;Cancelar
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+// Validación de formulario
+document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    const form = document.querySelector(&#39;form&#39;);
+    form.addEventListener(&#39;submit&#39;, function(event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add(&#39;was-validated&#39;);
+    });
+
+    // Efecto de entrada suave para el contenedor
+    const loginContainer = document.querySelector(&#39;.login-container&#39;);
+    loginContainer.style.opacity = &#39;0&#39;;
+    loginContainer.style.transform = &#39;translateY(20px)&#39;;
+    
+    setTimeout(() =&gt; {
+        loginContainer.style.transition = &#39;all 0.6s ease&#39;;
+        loginContainer.style.opacity = &#39;1&#39;;
+        loginContainer.style.transform = &#39;translateY(0)&#39;;
+    }, 100);
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Asegúrese de que los archivos fuente JavaScript se cargan solo desde fuentes de confianza, y que las fuentes no pueden ser controladas por los usuarios finales de la aplicación.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				<li id="alerts--risk-0-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Informativo</span>, <span>Confidence</span>=<span
+							class="confidence-level">Alta</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8083</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-6">Petición de Autenticación Identificada</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://localhost:8083/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>La petición en cuestión se ha identificado como una petición de autenticación. El campo &quot;Otra información&quot; contiene un conjunto de líneas key=vvalue que identifican cualquier campo relevante. Si la solicitud está en un contexto que tiene un método de autenticación configurado como &quot;Detección automática&quot;, esta regla cambiará la autenticación para que coincida con la petición identificada.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>userParam=email</p>
+
+<p>userValue=zaproxy@example.com</p>
+
+<p>passwordParam=password</p>
+
+<p>referer=http://localhost:8083/login</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (396 bytes)</summary>
+				
+				<pre><code>POST http://localhost:8083/login HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://localhost:8083/login
+content-length: 143
+Cookie: JSESSIONID=571720B96A86CC6786ACD6BE1B9FCCD8
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (143 bytes)</summary>
+				
+				<pre><code>_csrf=zMmi2XBoKtwjDssps8N0olll6QqdfOiuVWiqiVBvA323pPbdrvma4EgMTuUOa_NM1-5Axm8BxDKtStiDZVCYvWBZNk-Cx5Dl&amp;email=zaproxy%40example.com&amp;password=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (287 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Location: http://localhost:8083/login?error
+Content-Length: 0
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>email</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>password</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Se trata de una alerta informativa y no de una vulnerabilidad, por lo que no hay nada que corregir.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-0-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Informativo</span>, <span>Confidence</span>=<span
+							class="confidence-level">Media</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8083</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-4">Aplicación Web Moderna</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8083/</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>La aplicación parece ser una aplicación web moderna. Si necesita explorarla automáticamente, el Ajax Spider puede ser más eficaz que el estándar.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>Se han encontrado enlaces que no tienen atributos href tradicionales, lo que indica que se trata de una aplicación web moderna.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (320 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8083/ HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://localhost:8083/login
+Cookie: JSESSIONID=571720B96A86CC6786ACD6BE1B9FCCD8
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (309 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/html;charset=UTF-8
+Content-Language: es-PE
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+content-length: 8529
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (8529 bytes)</summary>
+				
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Clinica Lolimsa&lt;/title&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/index.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;nav class=&quot;navbar navbar-expand-lg navbar-custom&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;i class=&quot;bi bi-heart-pulse-fill me-2&quot;&gt;&lt;/i&gt;Clinica Lolimsa&lt;/a&gt;
+    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent&quot;&gt;
+      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;
+      &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a class=&quot;nav-link&quot; href=&quot;/&quot;&gt;Inicio&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a class=&quot;nav-link&quot; href=&quot;/contact&quot;&gt;Contacto&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class=&quot;navbar-nav&quot;&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a href=&quot;/register&quot; class=&quot;btn btn-light me-2&quot;&gt;&lt;i class=&quot;bi bi-person-plus-fill&quot;&gt;&lt;/i&gt; Registro&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+          &lt;a href=&quot;/login&quot; class=&quot;btn btn-outline-light&quot;&gt;&lt;i class=&quot;bi bi-box-arrow-in-right&quot;&gt;&lt;/i&gt; Iniciar Sesión&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- Sección con banner rotativo --&gt;
+&lt;section class=&quot;banner text-center animate__animated animate__fadeIn&quot;&gt;
+  &lt;div class=&quot;background-slider&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;container content&quot;&gt;
+    &lt;h1 class=&quot;display-4 mb-4&quot;&gt;Bienvenidos a Clínica Lolimsa&lt;/h1&gt;
+    &lt;p class=&quot;lead mb-5&quot;&gt;Cuidando de tu salud con tecnología y profesionalismo&lt;/p&gt;
+    &lt;a href=&quot;/citas&quot; class=&quot;btn btn-light btn-lg&quot;&gt;Agenda tu Cita&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class=&quot;container py-5&quot;&gt;
+  &lt;h2 class=&quot;text-center mb-5 animate-on-scroll&quot;&gt;Nuestros Servicios&lt;/h2&gt;
+
+  &lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;card service-card animate-on-scroll&quot;&gt;
+        &lt;img src=&quot;/img/consulta.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Consulta Médica&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;Consulta Médica&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;Atención médica personalizada con los mejores especialistas.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;card service-card animate-on-scroll&quot;&gt;
+        &lt;img src=&quot;/img/laboratorio.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Laboratorio&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;Laboratorio Clínico&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;Análisis clínicos con tecnología de última generación.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;card service-card animate-on-scroll&quot;&gt;
+        &lt;img src=&quot;/img/emergencia.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Emergencias&quot;&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+          &lt;h5 class=&quot;card-title&quot;&gt;Emergencias 24/7&lt;/h5&gt;
+          &lt;p class=&quot;card-text&quot;&gt;Atención de emergencias las 24 horas del día.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Testimonios --&gt;
+&lt;section class=&quot;bg-light py-5&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h2 class=&quot;text-center mb-5 animate-on-scroll&quot;&gt;Testimonios de Pacientes&lt;/h2&gt;
+    &lt;div class=&quot;row g-4&quot;&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;div class=&quot;card p-3 h-100 animate-on-scroll&quot;&gt;
+          &lt;blockquote class=&quot;blockquote mb-0&quot;&gt;
+            &lt;p&gt;&quot;Excelente atención médica, los doctores son muy profesionales y empáticos.&quot;&lt;/p&gt;
+            &lt;footer class=&quot;blockquote-footer&quot;&gt;María López&lt;/footer&gt;
+          &lt;/blockquote&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;div class=&quot;card p-3 h-100 animate-on-scroll&quot;&gt;
+          &lt;blockquote class=&quot;blockquote mb-0&quot;&gt;
+            &lt;p&gt;&quot;Rápido, eficiente y con tecnología moderna. Altamente recomendado.&quot;&lt;/p&gt;
+            &lt;footer class=&quot;blockquote-footer&quot;&gt;Carlos Fernández&lt;/footer&gt;
+          &lt;/blockquote&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;div class=&quot;card p-3 h-100 animate-on-scroll&quot;&gt;
+          &lt;blockquote class=&quot;blockquote mb-0&quot;&gt;
+            &lt;p&gt;&quot;Fui por una emergencia y me atendieron en minutos, gracias Clínica Lolimsa.&quot;&lt;/p&gt;
+            &lt;footer class=&quot;blockquote-footer&quot;&gt;Lucía Ramírez&lt;/footer&gt;
+          &lt;/blockquote&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Sección de Preguntas Frecuentes --&gt;
+&lt;section class=&quot;py-5&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h2 class=&quot;text-center mb-4&quot;&gt;Preguntas Frecuentes&lt;/h2&gt;
+    &lt;div class=&quot;accordion&quot; id=&quot;faqAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;faq1&quot;&gt;
+          &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse1&quot;&gt;
+            ¿Cómo puedo agendar una cita?
+          &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;collapse1&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#faqAccordion&quot;&gt;
+          &lt;div class=&quot;accordion-body&quot;&gt;
+            Puedes agendar tu cita en línea desde nuestro sitio web o llamando al número de atención al cliente.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;faq2&quot;&gt;
+          &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse2&quot;&gt;
+            ¿Atienden emergencias las 24 horas?
+          &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;collapse2&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#faqAccordion&quot;&gt;
+          &lt;div class=&quot;accordion-body&quot;&gt;
+            Sí, nuestro servicio de emergencias está disponible todos los días, las 24 horas.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;faq3&quot;&gt;
+          &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse3&quot;&gt;
+            ¿Aceptan seguros médicos?
+          &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;collapse3&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#faqAccordion&quot;&gt;
+          &lt;div class=&quot;accordion-body&quot;&gt;
+            Sí, trabajamos con las principales aseguradoras del país. Consulta nuestra lista completa de convenios en la sección de servicios.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Footer --&gt;
+&lt;footer class=&quot;bg-dark text-light py-4&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5&gt;Clínica Lolimsa&lt;/h5&gt;
+        &lt;p&gt;Comprometidos con tu bienestar desde 1998.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5&gt;Enlaces Rápidos&lt;/h5&gt;
+        &lt;ul class=&quot;list-unstyled&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;/about&quot; class=&quot;text-decoration-none text-light&quot;&gt;Sobre Nosotros&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;/services&quot; class=&quot;text-decoration-none text-light&quot;&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;/contact&quot; class=&quot;text-decoration-none text-light&quot;&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-4&quot;&gt;
+        &lt;h5&gt;Síguenos&lt;/h5&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-light me-2&quot;&gt;&lt;i class=&quot;bi bi-facebook&quot;&gt;&lt;/i&gt; Facebook&lt;/a&gt;&lt;br&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-light me-2&quot;&gt;&lt;i class=&quot;bi bi-instagram&quot;&gt;&lt;/i&gt; Instagram&lt;/a&gt;&lt;br&gt;
+        &lt;a href=&quot;#&quot; class=&quot;text-light&quot;&gt;&lt;i class=&quot;bi bi-twitter-x&quot;&gt;&lt;/i&gt; Twitter&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;text-center mt-3&quot;&gt;
+      &lt;small&gt;&amp;copy; 2025 Clínica Lolimsa. Todos los derechos reservados.&lt;/small&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+
+
+&lt;!-- Scripts --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/js/index.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  // Animación al hacer scroll
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(entries =&gt; {
+    entries.forEach(entry =&gt; {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(&#39;visible&#39;);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(&#39;.animate-on-scroll&#39;).forEach(element =&gt; {
+    observer.observe(element);
+  });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>&lt;a href=&quot;#&quot; class=&quot;text-light me-2&quot;&gt;&lt;i class=&quot;bi bi-facebook&quot;&gt;&lt;/i&gt; Facebook&lt;/a&gt;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Se trata de una alerta informativa, por lo que no es necesario realizar ningún cambio.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-7">Respuesta de Gestión de Sesión Identificada</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:8083/sitemap.xml</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Se ha identificado que la respuesta dada contiene un token de gestión de sesión. El campo &#39;Other Info&#39; contiene un conjunto de tokens de cabecera que pueden utilizarse en el método Header Based Session Management (gestión de sesión basado en cabecera). Si la petición se encuentra en un contexto que tiene un método Session Management establecido en &quot;Auto-Detect&quot;, esta regla cambiará la gestión de sesión para utilizar los tokens identificados.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>cookie:JSESSIONID</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (240 bytes)</summary>
+				
+				<pre><code>GET http://localhost:8083/sitemap.xml HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (356 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302
+Set-Cookie: JSESSIONID=571720B96A86CC6786ACD6BE1B9FCCD8; Path=/; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Location: http://localhost:8083/login
+Content-Length: 0
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>JSESSIONID</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>JSESSIONID</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Se trata de una alerta informativa y no de una vulnerabilidad, por lo que no hay nada que corregir.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-0-confidence-1">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Informativo</span>, <span>Confidence</span>=<span
+							class="confidence-level">Baja</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:8083</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-5">Atributo de elemento HTML controlable por el usuario (XSS potencial)</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://localhost:8083/register</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/2025/A05_2025-Injection/">OWASP_2025_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/20.html">CWE-20</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Esta comprobación examina la entrada proporcionada por el usuario en parámetros de cadenas de consulta y datos POST para identificar dónde podrían estar controlados ciertos valores de atributos HTML. Esto proporciona detección de puntos calientes para XSS (cross-site scripting) que requerirán una revisión adicional por parte de un analista de seguridad para determinar la explotabilidad.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>Se han encontrado valores de atributos HTML controlados por el usuario. Intente inyectar caracteres especiales para ver si es posible XSS. La página en la siguiente URL parece incluir una entrada de usuario en una etiqueta [input] atributo [value] La entrada de usuario encontrada era:alergias=ZAP El valor controlado por el usuario era:zap.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (402 bytes)</summary>
+				
+				<pre><code>POST http://localhost:8083/register HTTP/1.1
+host: localhost:8083
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://localhost:8083/register
+content-length: 515
+Cookie: JSESSIONID=571720B96A86CC6786ACD6BE1B9FCCD8
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (515 bytes)</summary>
+				
+				<pre><code>_csrf=672C2hYr5RJsU7gORlFCECcy-D9_GMJSOEkeY3IaaLUO5Nz-iY264y5PgStBNoBrInx2dBFW1QdPLvJ_CHEsV0IsXYc7h7rG&amp;firstName=ZAP&amp;lastName=ZAP&amp;email=zaproxy%40example.com&amp;phone=9999999999&amp;address=688+Zaproxy+Ridge&amp;sexo=Masculino&amp;fechaNacimiento=27%2F06%2F26&amp;tipoSangre=ZAP&amp;documentoIdentidad=ZAP&amp;nacionalidad=ZAP&amp;estadoCivil=ZAP&amp;ocupacion=ZAP&amp;contactoEmergenciaNombre=ZAP&amp;contactoEmergenciaTelefono=ZAP&amp;contactoEmergenciaRelacion=ZAP&amp;alergias=ZAP&amp;enfermedadesPrevias=ZAP&amp;medicamentosActuales=ZAP&amp;password=ZAP&amp;confirmPassword=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (309 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: text/html;charset=UTF-8
+Content-Language: es-PE
+Date: Sat, 27 Jun 2026 23:36:23 GMT
+content-length: 9247
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (9247 bytes)</summary>
+				
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;Registro Clinica Lolimsa&lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH&quot; crossorigin=&quot;anonymous&quot;&gt;
+      &lt;link
+              href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css&quot;
+              rel=&quot;stylesheet&quot;
+      /&gt;
+      &lt;link
+              rel=&quot;stylesheet&quot;
+              href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css&quot;
+      /&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/registro.css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div class=&quot;container d-flex justify-content-center align-items-center min-vh-100&quot;&gt;
+      &lt;div class=&quot;card p-4 col-md-10 col-lg-9&quot;&gt;
+          &lt;div class=&quot;text-center mb-4&quot;&gt;
+              &lt;h3&gt;&lt;i class=&quot;fas fa-user-plus me-2&quot;&gt;&lt;/i&gt;Registro de Paciente&lt;/h3&gt;
+          &lt;/div&gt;
+
+          
+
+          &lt;form method=&quot;post&quot;&gt;
+              &lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;tVa_9TX_yqCJi2DbNIi8Yoqy4Euf4HKGln5uUIaUmIa3Do1912aHzA2brpmk7li-UKWIBrzWzXOv1kKrpkZcZLairbSCbetF&quot;/&gt;
+
+              &lt;div class=&quot;row g-3&quot;&gt;
+                  &lt;!-- Datos personales --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Nombre&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-user&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Nombre&quot; id=&quot;firstName&quot; name=&quot;firstName&quot; value=&quot;ZAP&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Apellido&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-user&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Apellido&quot; id=&quot;lastName&quot; name=&quot;lastName&quot; value=&quot;ZAP&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Email&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-envelope&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Correo electrónico&quot; id=&quot;email&quot; name=&quot;email&quot; value=&quot;zaproxy@example.com&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Teléfono&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-phone&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Teléfono&quot; id=&quot;phone&quot; name=&quot;phone&quot; value=&quot;9999999999&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-12&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Dirección&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-home&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input class=&quot;form-control&quot; placeholder=&quot;Dirección&quot; id=&quot;address&quot; name=&quot;address&quot; value=&quot;688 Zaproxy Ridge&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Más datos --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Sexo&lt;/label&gt;
+                      &lt;select class=&quot;form-select&quot; id=&quot;sexo&quot; name=&quot;sexo&quot;&gt;
+                          &lt;option value=&quot;&quot;&gt;Seleccionar&lt;/option&gt;
+                          &lt;option value=&quot;Masculino&quot; selected=&quot;selected&quot;&gt;Masculino&lt;/option&gt;
+                          &lt;option value=&quot;Femenino&quot;&gt;Femenino&lt;/option&gt;
+                      &lt;/select&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Fecha de Nacimiento&lt;/label&gt;
+                      &lt;input type=&quot;date&quot; class=&quot;form-control&quot; id=&quot;fechaNacimiento&quot; name=&quot;fechaNacimiento&quot; value=&quot;27/06/26&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Tipo de Sangre&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. O+&quot; id=&quot;tipoSangre&quot; name=&quot;tipoSangre&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;DNI / Pasaporte&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Documento&quot; id=&quot;documentoIdentidad&quot; name=&quot;documentoIdentidad&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Nacionalidad&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;nacionalidad&quot; name=&quot;nacionalidad&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Estado Civil&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;estadoCivil&quot; name=&quot;estadoCivil&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Ocupación&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;ocupacion&quot; name=&quot;ocupacion&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Emergencia --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Contacto de Emergencia - Nombre&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactoEmergenciaNombre&quot; name=&quot;contactoEmergenciaNombre&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Teléfono de Emergencia&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactoEmergenciaTelefono&quot; name=&quot;contactoEmergenciaTelefono&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Relación con el contacto&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactoEmergenciaRelacion&quot; name=&quot;contactoEmergenciaRelacion&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Salud --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Alergias&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. Penicilina, Polen&quot; id=&quot;alergias&quot; name=&quot;alergias&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Enfermedades Previas&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. Diabetes, Asma&quot; id=&quot;enfermedadesPrevias&quot; name=&quot;enfermedadesPrevias&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Medicamentos Actuales&lt;/label&gt;
+                      &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Ej. Ibuprofeno, Insulina&quot; id=&quot;medicamentosActuales&quot; name=&quot;medicamentosActuales&quot; value=&quot;ZAP&quot;/&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Seguridad --&gt;
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Contraseña&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Contraseña&quot; id=&quot;password&quot; name=&quot;password&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;label class=&quot;form-label&quot;&gt;Confirmar Contraseña&lt;/label&gt;
+                      &lt;div class=&quot;input-group&quot;&gt;
+                          &lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                          &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Repetir contraseña&quot; id=&quot;confirmPassword&quot; name=&quot;confirmPassword&quot; value=&quot;&quot;/&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;d-flex justify-content-center mt-4 gap-3&quot;&gt;
+                  &lt;button type=&quot;submit&quot; class=&quot;btn btn-success px-4 rounded-pill&quot;&gt;
+                      &lt;i class=&quot;fas fa-save me-2&quot;&gt;&lt;/i&gt;Registrar
+                  &lt;/button&gt;
+                  &lt;a href=&quot;/&quot; class=&quot;btn btn-outline-danger px-4 rounded-pill&quot;&gt;
+                      &lt;i class=&quot;fas fa-times me-2&quot;&gt;&lt;/i&gt;Cancelar
+                  &lt;/a&gt;
+              &lt;/div&gt;
+          &lt;/form&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Bootstrap and icons --&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://kit.fontawesome.com/a076d05399.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>alergias</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Válida la entrada y sanea la salida antes de escribirla en cualquier atributo HTML.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				  
+			</ol>
+		</section>
+
+		<section id="appendix" class="appendix">
+			<h2>Appendix</h2>
+
+			<section id="alert-types" class="alert-types">
+				<h3>Alert Types</h3>
+				<p class="alert-types-intro">This section contains additional information on the types of alerts in the report.</p>
+				<ol>
+					<li
+						id="alert-type-0">
+						<h4>Cabecera Content Security Policy (CSP) no configurada</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10038/">Cabecera Content Security Policy (CSP) no configurada</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</a></li>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a></li>
+										<li><a
+											href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a></li>
+										<li><a
+											href="https://web.dev/articles/csp">https://web.dev/articles/csp</a></li>
+										<li><a
+											href="https://caniuse.com/#feat=contentsecuritypolicy">https://caniuse.com/#feat=contentsecuritypolicy</a></li>
+										<li><a
+											href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-1">
+						<h4>Falta atributo de integridad de recursos secundarios</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/90003/">Falta atributo de integridad de recursos secundarios</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/345.html">345</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-2">
+						<h4>Cookie sin el atributo SameSite</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10054/">Cookie sin el atributo SameSite</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site">https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-3">
+						<h4>Inclusión de archivos fuente JavaScript entre dominios</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10017/">Inclusión de archivos fuente JavaScript entre dominios</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/829.html">829</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							
+						</table>
+					</li>
+					<li
+						id="alert-type-4">
+						<h4>Aplicación Web Moderna</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10109/">Aplicación Web Moderna</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							
+						</table>
+					</li>
+					<li
+						id="alert-type-5">
+						<h4>Atributo de elemento HTML controlable por el usuario (XSS potencial)</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10031/">Atributo de elemento HTML controlable por el usuario (XSS potencial)</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/20.html">20</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>20</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-6">
+						<h4>Petición de Autenticación Identificada</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10111/">Petición de Autenticación Identificada</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-7">
+						<h4>Respuesta de Gestión de Sesión Identificada</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10112/">Respuesta de Gestión de Sesión Identificada</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ol>
+			</section>
+		</section>
+		 
+	</main>
+</body>
+</html>
+
+
+

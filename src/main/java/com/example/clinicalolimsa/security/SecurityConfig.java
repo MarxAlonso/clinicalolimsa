@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.header.writers.XXssProtectionHeaderWriter;
 
 @Configuration
 @EnableWebSecurity
@@ -48,6 +49,21 @@ public class SecurityConfig {
                 // Configura el logout
                 .logout(logout ->
                         logout.logoutSuccessUrl("/").permitAll() // Redirige al inicio después de cerrar sesión
+                )
+                .headers(headers -> headers
+                        .xssProtection(xss -> xss
+                                .headerValue(XXssProtectionHeaderWriter.HeaderValue.ENABLED_MODE_BLOCK)
+                        )
+                        .contentSecurityPolicy(csp -> csp
+                                .policyDirectives("default-src 'self'; " +
+                                        "script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://kit.fontawesome.com 'unsafe-inline'; " +
+                                        "style-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; " +
+                                        "img-src 'self' data:; " +
+                                        "font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com data:; " +
+                                        "connect-src 'self'; " +
+                                        "frame-src 'self'; " +
+                                        "object-src 'none'")
+                        )
                 );
 
         return http.build(); // Construye y retorna el SecurityFilterChain
@@ -65,4 +81,5 @@ public class SecurityConfig {
         // Bean que expone el AuthenticationManager para poder usarlo en otras partes del proyecto (ej: login manual)
         return config.getAuthenticationManager();
     }
+
 }
