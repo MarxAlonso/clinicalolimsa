@@ -1,0 +1,57 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java 24
+        uses: actions/setup-java@v4
+        with:
+          java-version: '24'
+          distribution: 'temurin'
+
+      - name: Build and Test
+        run: ./mvnw -B clean verify
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clinicalolimsa-jar
+          path: target/clinicalolimsa-0.0.1-SNAPSHOT.jar
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download JAR artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: clinicalolimsa-jar
+
+      - name: Simulate Cloud Authentication
+        run: |
+          echo "Iniciando autenticación con el proveedor cloud..."
+          sleep 2
+
+      - name: Prepare Artifact
+        run: |
+          echo "Preparando el artefacto clinicalolimsa-0.0.1-SNAPSHOT.jar para el despliegue..."
+          sleep 2
+
+      - name: Upload to Production
+        run: |
+          echo "Subiendo empaquetado a producción..."
+          sleep 3
+
+      - name: Finalize
+        run: echo "¡Despliegue finalizado con éxito en el entorno!"
