@@ -198,7 +198,7 @@
 						<configuration>
 							<rules>
 								<rule>
-									<element>PACKAGE</element>
+									<element>BUNDLE</element>
 									<excludes>
 										<exclude>*Test</exclude>
 									</excludes>
