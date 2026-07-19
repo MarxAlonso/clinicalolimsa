@@ -23,10 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @DisplayName("Selenium Tests - Public Pages")
 class PublicPagesSeleniumTest {
 
-    private static final boolean HEADLESS = Boolean.parseBoolean(
-            System.getProperty("selenium.headless", "false")
-    );
-
     @LocalServerPort
     private int port;
 
@@ -36,9 +32,7 @@ class PublicPagesSeleniumTest {
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
-        if (HEADLESS) {
-            options.addArguments("--headless=new");
-        }
+        options.addArguments("--headless=new");
         options.addArguments("--window-size=1440,900");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
